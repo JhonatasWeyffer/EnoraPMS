@@ -297,7 +297,7 @@ docker run -p 3000:3000 \
 
 ### 1. Login no Sistema
 
-> **📸 Adicione aqui um screenshot da tela de login:**
+> **📸 Imagem ilustrativa da tela de login:**
 >
 > ![Tela de Login](docs/images/login.png)
 
@@ -307,7 +307,7 @@ Acesse `http://localhost:5173/login` e insira suas credenciais de operador. O si
 
 ### 2. Dashboard — Visão Geral
 
-> **📸 Adicione aqui um screenshot do Dashboard:**
+> **📸 Imagem ilustrativa do Dashboard:**
 >
 > ![Dashboard](docs/images/dashboard.png)
 
@@ -321,7 +321,7 @@ O Dashboard exibe em tempo real:
 
 ### 3. Mapa de Reservas
 
-> **📸 Adicione aqui um screenshot do Mapa de Reservas:**
+> **📸 Imagem ilustrativa do Mapa de Reservas:**
 >
 > ![Mapa de Reservas](docs/images/reservation-map.png)
 
@@ -331,7 +331,7 @@ O mapa de reservas é a visão central de ocupação. Exibe todos os quartos do 
 
 ### 4. Criando uma Reserva
 
-> **📸 Adicione aqui um screenshot do formulário de nova reserva:**
+> **📸 Imagem ilustrativa do formulário de nova reserva:**
 >
 > ![Nova Reserva](docs/images/new-reservation.png)
 
@@ -347,7 +347,7 @@ O mapa de reservas é a visão central de ocupação. Exibe todos os quartos do 
 
 ### 5. Check-in de Hóspede
 
-> **📸 Adicione aqui um screenshot da tela de Check-in/Check-out:**
+> **📸 Imagem ilustrativa da tela de Check-in/Check-out:**
 >
 > ![Check-in](docs/images/checkin.png)
 
@@ -360,7 +360,7 @@ O mapa de reservas é a visão central de ocupação. Exibe todos os quartos do 
 
 ### 6. Governança (Housekeeping)
 
-> **📸 Adicione aqui um screenshot da tela de Governança:**
+> **📸 Imagem ilustrativa  da tela de Governança:**
 >
 > ![Housekeeping](docs/images/housekeeping.png)
 
@@ -373,7 +373,7 @@ Controle o status de limpeza de cada quarto:
 
 ### 7. Financeiro — Caixa Diário
 
-> **📸 Adicione aqui um screenshot do módulo Financeiro:**
+> **📸 Imagem ilustrativa  do módulo Financeiro:**
 >
 > ![Financeiro](docs/images/financial.png)
 
@@ -383,7 +383,7 @@ Registre entradas e saídas do caixa, vinculadas ou não a reservas. O módulo e
 
 ### 8. Relatórios
 
-> **📸 Adicione aqui um screenshot da tela de Relatórios:**
+> **📸 Imagem ilustrativa da tela de Relatórios:**
 >
 > ![Relatórios](docs/images/reports.png)
 
@@ -457,6 +457,7 @@ EnoraPMS/
 
 <div align="center">
 
-Desenvolvido com ❤️ para a hotelaria brasileira.
+Desenvolvido por equipe Enora para a hotelaria brasileira.  
+&copy; 2026 Todos os direitos reservados.
 
 </div>

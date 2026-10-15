@@ -1,0 +1,132 @@
+/* Escopo exclusivo para o módulo de quartos */
+.rooms-module {
+    padding: 24px;
+    background: #f4f7f6;
+    /* Desconta os 90px do seu header fixo para evitar sobreposição */
+    min-height: calc(100vh - 90px); 
+}
+
+/* Barra de Filtros */
+.rooms-filter-bar {
+    background: white;
+    padding: 15px 30px;
+    display: flex;
+    gap: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
+    border-radius: 12px;
+    flex-wrap: wrap;
+    border: 1px solid #e2e8f0;
+}
+
+.rooms-filter-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.rooms-filter-group label {
+    font-size: 12px;
+    font-weight: 800;
+    margin-bottom: 8px;
+    color: #64748b;
+    text-transform: uppercase;
+}
+
+/* Grid de Quartos */
+.rooms-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+/* Card do Quarto */
+.room-card-unit {
+    background: white;
+    display: flex;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.04);
+    overflow: hidden;
+    height: 100px;
+    border: 1px solid #e2e8f0;
+    transition: transform 0.2s ease;
+}
+
+.room-card-unit:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.08);
+}
+
+.room-status-bar {
+    width: 14px;
+    height: 100%;
+}
+
+.room-card-content {
+    padding: 15px 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.room-number-label {
+    font-weight: 800;
+    font-size: 18px;
+    margin: 0 0 4px 0;
+    color: #1e293b;
+}
+
+/* Select de Status dentro do card */
+.room-status-select {
+    border: none;
+    background: none;
+    font-size: 15px;
+    cursor: pointer;
+    font-weight: 700;
+    width: fit-content;
+    padding: 0;
+    outline: none;
+}
+
+/* CORES DOS STATUS - Sincronizadas com o padrão visual do hotel */
+.bg-LIVRE { background: #2ecc71; }
+.bg-OCUPADO { background: #ff4d4d; }
+.bg-RESERVADO { background: #3498db; }
+.bg-LIMPEZA { background: #f1c40f; }
+.bg-MANUTENCAO { background: #e67e22; }
+
+.text-LIVRE { color: #2ecc71; }
+.text-OCUPADO { color: #ff4d4d; }
+.text-RESERVADO { color: #3498db; }
+.text-LIMPEZA { color: #f1c40f; }
+.text-MANUTENCAO { color: #e67e22; }
+
+/* Inputs e Selects da barra de filtros */
+.rooms-filter-group input, 
+.rooms-filter-group select {
+    padding: 10px 15px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 14px;
+    color: #334155;
+}
+
+/* --- ESTILO PADRÃO (LIGHT MODE) --- */
+.rooms-filter-group input[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    filter: invert(0.5); /* Ajuste o valor de 0 a 1 para mudar a cor do ícone */
+}
+
+/* --- DARK MODE --- */
+.dark-mode .rooms-filter-group input[type="date"]::-webkit-calendar-picker-indicator {
+    /* Inverte o ícone para ficar branco no dark mode */
+    filter: invert(1) brightness(100%); 
+}
+
+.loading-txt {
+    text-align: center;
+    padding: 50px;
+    color: #64748b;
+    font-style: italic;
+}

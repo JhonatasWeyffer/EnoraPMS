@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root{
+    --primary-color: #c6c3c3;
+    --second-color: #ffffff; 
+    --black-color: #000000;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    /* Removido o overflow hidden para permitir rolagem se os cards ocuparem muito espaço */
+    min-height: 100%;
+}
+
+.btn-voltar {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    color: white;
+    background: rgba(255,255,255,0.15);
+    padding: 10px 18px !important;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 12.5px;
+    transition: 0.3s;
+    z-index: 10;
+}
+
+.btn-voltar:hover {
+    transform: scale(1.05);
+    background: #1ebe5d;
+}
+
+.support-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; 
+    width: 100vw; 
+    background: #1d3557;
+    font-family: "Poppins", sans-serif;
+    padding: 60px 20px 20px 20px; /* Aumentado o padding superior por causa do botão voltar */
+    box-sizing: border-box; 
+}
+
+.support-wrapper * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/* Caixa que envolve a frase e o ícone */
+.support-wrapper .box-texto {
+    margin-bottom: 20px; 
+    padding: 20px;
+    max-width: 800px;
+    text-align: center;
+}
+
+.support-wrapper .mensagem {
+    font-size: 1.1rem;
+    color: var(--second-color);
+    line-height: 1.6;
+}
+
+.support-wrapper .icon-suporte {
+    display: block;
+    margin: 10px auto 0;
+    font-size: 55px;
+    color: #2563eb;
+}
+
+/* Novo container para alinhar os cards responsivamente */
+.container-atendentes {
+    display: flex;
+    justify-content: center;
+    align-items: stretch; /* Garante que todos os cards fiquem com a mesma altura */
+    gap: 20px;
+    flex-wrap: wrap; /* Permite a quebra para a segunda linha */
+    width: 100%;
+    max-width: 1100px; /* Ajustado para segurar o limite dos 3 cards perfeitamente */
+    margin-top: 10px;
+}
+
+.support-wrapper .box-atendente {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--second-color);
+    padding: 25px 20px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    
+    /* --- MUDANÇA AQUI: Força 3 por linha em telas grandes --- */
+    width: calc(33.333% - 14px); 
+    min-width: 280px; /* Evita que o card esmague em telas menores antes de quebrar a linha */
+    
+    justify-content: space-between; 
+}
+
+/* --- RESPONSIVIDADE PARA CELULAR --- */
+@media (max-width: 900px) {
+    .support-wrapper .box-atendente {
+        /* Em telas menores (celulares/tablets), eles passam a ocupar a largura total e viram lista */
+        width: 100%; 
+    }
+}
+
+.dark-mode .support-wrapper .box-atendente {
+    background: #1e293b; /* Mantendo o fundo escuro no dark mode */
+    color: var(--second-color);
+}
+
+.support-wrapper .foto-atendente {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 12px;
+    border: 3px solid #2563eb; /* Um detalhe sutil de borda combinando com o ícone */
+}
+
+.especialidade-atendente {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #2563eb;
+    margin-top: 4px;
+    margin-bottom: 8px;
+}
+
+.btn-whatsapp {
+    display: inline-block;
+    margin-top: 15px;
+    background: #25d366;
+    color: var(--second-color);
+    padding: 8px 16px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: 0.25s;
+    box-shadow: 0 6px 15px rgba(37, 211, 102, 0.35);
+    width: 100%; /* Botão ocupa toda a largura interna do card */
+}
+
+.btn-whatsapp:hover {
+    transform: scale(1.05);
+    background: #1ebe5d;
+}
+
+.rodape {
+    color: #ffffff;
+}
+
+/* --- REGRAS DO DARK MODE (PRESERVADAS) --- */
+.support-wrapper .nome-atendente {
+    color: #000000; /* Cor padrão do texto dentro do card branco */
+}
+.dark-mode .support-wrapper .nome-atendente {
+    color: #000000; /* Preservado conforme sua regra anterior */
+}
+
+.support-wrapper .descricao-contato {
+    color: #666666; /* Ajustado levemente para dar leitura sobre o fundo branco */
+    font-size: 0.8rem;
+}
+.dark-mode .support-wrapper .descricao-contato {
+    color: #000000; /* Preservado conforme sua regra anterior */
+}

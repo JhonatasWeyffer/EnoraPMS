@@ -1,0 +1,281 @@
+/* 1. Reset e Container Principal */
+.dashboard-container {
+    padding: 25px;
+    background-color: var(--bg-body, #f4f7fe); /* Adicionei uma variável de fundo de página */
+    min-height: 100vh;
+    color: var(--text-primary);
+}
+
+/* .page-title {
+    font-size: 1.5rem;
+    color: #2b3674;
+    margin-bottom: 25px;
+    font-weight: 700;
+} */
+
+/* 2. Grid de Cards */
+.indicadores-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+/* 3. Estilo Base dos Cards */
+.card-info {
+    position: relative;
+    min-height: 110px;
+    padding: 25px;
+    border-radius: 12px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-info:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.card-info span { 
+    font-size: 0.9rem; 
+    font-weight: 500;
+    display: block;
+    margin-bottom: 5px;
+    opacity: 0.9;
+}
+
+.card-info strong { 
+    font-size: 1.6rem; 
+    font-weight: bold;
+    display: block;
+}
+
+/* Ícone de fundo dos cards */
+.icon-bg {
+    position: absolute;
+    right: 15px;
+    bottom: 10px;
+    font-size: 3.5rem;
+    opacity: 0.2;
+    transform: rotate(-15deg);
+}
+
+/* Cores e Gradientes dos Cards */
+.card-vendas { background: linear-gradient(135deg, #4a6cf7, #3b5bdb); }      /* Entradas */
+.card-recebido { background: linear-gradient(135deg, #2ecc71, #27ae60); }    /* Livres */
+.card-confirmados { background: linear-gradient(135deg, #fd7e14, #e67e22); } /* Saídas */
+.card-pendentes { background: linear-gradient(135deg, #17a2b8, #117a8b); }   /* Ocupação */
+.card-expirar { background: linear-gradient(135deg, #e0a800, #ffc107); }     /* Pendências */
+.card-expirado { background: linear-gradient(135deg, #6c757d, #495057); }    /* Limpeza */
+
+/* 4. Seção da Tabela e Busca */
+.secao-tabela {
+    background: var(--bg-container) !important; /* Agora segue o tema */
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
+    border: 5px solid #ffffff;
+}
+
+.search-container {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.search-label { font-weight: 600; color: #444; font-size: 0.9rem; }
+
+.search-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.search-box i {
+    position: absolute;
+    left: 15px; /* Posiciona o ícone dentro */
+    color: #a3aed0;
+    z-index: 10;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 12px 12px 12px 45px !important; /* Padding maior na esquerda para o ícone */
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    background: var(--bg-input) !important;
+    color: var(--text-primary) !important;
+    outline: none;
+}
+
+/* Garante que o container da busca alinhe corretamente */
+.search-container {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.search-box input:focus { border-color: #4a6cf7; }
+
+/* Tabela */
+table { width: 100%; border-collapse: collapse; }
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.font-medium { 
+    font-weight: 600; 
+    color: var(--text-primary) !important; 
+}
+
+/* Faz a célula se comportar como um bloco para empilhar */
+.linha-hospede td {
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* A descrição pequena em cima do dado */
+.label-descricao-2 {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--text-secondary) !important; /* Estava fixo em azul escuro */
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    letter-spacing: 0.5px;
+}
+
+/* Status Pills */
+.status-pill {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.status-checkin { background: #00b5ad; color: #e6fffa; }
+.status-checkout { background: #e53e3e; color: #fff5f5; }
+.status-pendente { background: #df9c0b; color: #fff5f5; }
+
+.dark-mode .status-checkin { background: #e7d7c9!important; color: #00b5ad; }
+.dark-mode .status-checkout { background: #e7d7c9!important; color: #e53e3e; }
+.dark-mode .status-pendente { background: #e7d7c9!important; color: #df9c0b; }
+
+/* 5. Seção do Gráfico */
+.secao-grafico {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    overflow: hidden;
+}
+
+.grafico-header {
+    background-color: #ffffff;
+    padding: 18px 25px;
+    border-bottom: 1px solid #f1f1f1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+    color: #2b3674;
+}
+
+.dark-mode .grafico-header { background-color: #1e293b; color: #ffffff; }
+
+.grafico-body { padding: 25px; background-color: var(--bg-container) !important; }
+.dark-mode .grafico-body { background-color: #1e293b !important; color: #ffffff !important; }
+
+/* Responsividade geral */
+@media (max-width: 1200px) {
+  .indicadores-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+    .dashboard-container {
+        padding: 15px;
+    }
+
+    /* Cards ocupam toda a largura */
+    .indicadores-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Busca em coluna */
+    .search-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-box input {
+        padding: 10px 35px 10px 35px;
+        font-size: 0.9rem;
+        margin-left: 20px;
+    }
+
+    /* Tabela em formato "cards" */
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    thead { display: none; }
+
+    .linha-hospede {
+        margin-bottom: 15px;
+        border: 1px solid #edf2f7;
+        border-radius: 8px;
+        padding: 10px;
+    }
+
+    .linha-hospede td {
+        border: none;
+        padding: 8px 0;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .label-descricao {
+        font-size: 0.75rem;
+    }
+}
+
+/* Ajustes extras para telas muito pequenas */
+@media (max-width: 480px) {
+    .card-info {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+    }
+
+    .card-info strong {
+        font-size: 1.3rem;
+    }
+
+    .icon-bg {
+        font-size: 2.5rem;
+        right: 5px;
+        bottom: 5px;
+    }
+}
+
+.dark-mode span {
+    color: white;
+}

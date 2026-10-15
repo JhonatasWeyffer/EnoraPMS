@@ -1,0 +1,478 @@
+/* ==========================================================================
+   ENORA PMS - CSS GLOBAL (ESTRUTURA E LAYOUT)
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Faculty+Glyphic&display=swap');
+
+/* --- RESET BÁSICO --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  overflow: hidden; /* Impede a janela inteira de rolar */
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  background-color: #f4f6f8;
+  color: #1f2937;
+}
+
+/* --- ESTRUTURA PRINCIPAL (LAYOUT) --- */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding-top: 90px;
+  overflow: hidden;
+}
+
+.layout-wrapper {
+  display: flex;
+  flex: 1;
+  height: 100%;
+  overflow: hidden;
+}
+
+.app-content {
+  flex: 1;
+  padding: 24px;
+  background: white;
+  overflow-y: auto;
+}
+
+.dashboard-container {
+  background: gray;
+}
+
+.rooms-module {
+  background: transparent;
+}
+
+/* --- HEADER GLOBAL --- */
+.app-header {
+  height: 90px;
+  background: linear-gradient(
+    135deg,
+    #ffffff,
+    #fcb816
+  );
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: visible !important;
+}
+
+.header-logo {
+  height: 350px;
+  object-fit: contain;
+  margin-top: 6px;
+  margin-left: -50px;
+  margin-right: -20px;
+}
+
+.header-nav {
+  display: flex;
+  gap: 30px;
+  flex: 1;
+  font-size: 26px;
+  justify-content: center;
+}
+
+.header-nav a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  color: #000000;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: 600;
+  padding: 10px 14px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  background: transparent;
+}
+
+.header-nav a:hover {
+  background: rgba(255,255,255,0.35);
+  color: #000000;
+  transform: translateY(-2px);
+}
+
+.header-nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background: #7c97bc;
+  transition: all 0.2s;
+  transform: translateX(-50%);
+}
+
+.header-nav a:hover::after {
+  width: 80%;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 0 0 auto;
+  min-width: 180px;
+  overflow: visible !important;
+}
+
+.dark-mode header i,
+.dark-mode .header i {
+    color: inherit !important;
+}
+/* --- SIDEBAR RECONFIGURADO E RESPONSIVO --- */
+.sidebar {
+  /* Substitui a largura fixa por uma largura fluída adaptável */
+  width: 16vw;
+  min-width: 240px;
+  max-width: 300px;
+  
+  background-color: #1a2b45; /* Azul marinho denso padrão das outras telas */
+  color: #FFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Empurra o footer para o final perfeitamente */
+  padding: 2.5rem 1.25rem;
+  border-right: 1px solid rgba(226, 232, 240, 0.1); /* Linha sutil para não pesar */
+  height: 100%;
+  position: relative;
+  top: auto;
+  
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.2) transparent;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; /* Espaçamento equilibrado entre os blocos de menu */
+}
+
+/* Estilização refinada dos links */
+.sidebar .menu-link {
+  text-decoration: none;
+  color: #94a3b8; /* Cor neutra suave para itens inativos */
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 500; /* Peso intermediário elegante */
+  font-size: 0.95rem; /* Tamanho ligeiramente menor para leitura premium */
+  
+  /* Padding expandido para dar o respiro visual */
+  padding: 14px 18px; 
+  border-radius: 10px;
+  
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: all 0.2s ease;
+}
+
+/* Hover sutil */
+.sidebar .menu-link:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+}
+
+/* Item Ativo com contraste perfeito (Igual ao seu print, mas com respiro) */
+.sidebar .menu-link.active {
+  background-color: #fcb816;
+  color: #1f2937;
+  font-weight: 700; /* Destaque no peso da fonte ao selecionar */
+  box-shadow: 0 4px 12px rgba(124, 151, 188, 0.2); /* Sombra suave no link ativo */
+}
+
+/* Ajuste fino dos ícones */
+.sidebar .menu-link i {
+  font-size: 1.25rem;
+  min-width: 24px;
+  display: flex;
+  justify-content: center;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.sidebar .menu-link.active i {
+  opacity: 1;
+}
+
+/* Rodapé do sistema */
+.sidebar-footer {
+  padding-left: 14px;
+  opacity: 0.4;
+  font-size: 0.8rem;
+  font-family: monospace;
+  font-weight: 500;
+  color: #cbd5e1;
+}
+
+/* --- RESPONSIVIDADE PARA TELAS MENORES (TABLETS/NOTEBOOKS PEQUENOS) --- */
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 80px;
+    min-width: 80px;
+    padding: 2rem 0.5rem;
+    align-items: center;
+  }
+
+  /* Oculta o texto do menu para virar um sistema de ícones compactos */
+  .sidebar .menu-label, 
+  .sidebar-footer p {
+    display: none;
+  }
+
+  .sidebar .menu-link {
+    padding: 12px;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+  }
+}
+
+/* --- COMPORTAMENTO DE OCULTAR SIDEBAR (SMART CONTROL) --- */
+.sidebar.hidden {
+  transform: translateX(-100%);
+  width: 0;
+  min-width: 0;
+  padding: 0;
+  border: none;
+}
+
+/* --- USER MENU (PILL E FLYOUT) --- */
+.user-scope {
+  position: relative;
+}
+
+.user-pill {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 5px 15px;
+  border-radius: 50px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.user-pill:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.avatar-circle {
+  width: 32px;
+  height: 32px;
+  background: #030b27;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.u-name { font-size: 13px; font-weight: 600; color: #ffffff; }
+.u-role { font-size: 10px; color: #94a3b8; text-transform: uppercase; }
+
+/* --- MENU DE USUÁRIO UNIFICADO --- */
+
+.user-flyout {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  width: 240px;
+  background: #ffffff;
+  color: #1a2b45;
+  border-radius: 12px !important;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  z-index: 9999;
+  overflow: hidden;
+  animation: flyoutShow 0.2s ease-out;
+}
+
+@keyframes flyoutShow {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.flyout-header { padding: 16px 20px; background: #f8fafc; border-bottom: 1px solid #f1f5f9; }
+.f-title { font-weight: 700; font-size: 14px; color: #1e293b; margin: 0; }
+.f-email { font-size: 12px; color: #64748b; margin: 4px 0 0 0; }
+.flyout-items { padding: 8px; }
+
+.flyout-items button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border: none;
+  background: none;
+  color: #475569;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.flyout-items button:hover { background: #eff6ff; color: #2563eb; }
+.flyout-divider { height: 1px; background: #f1f5f9; margin: 8px 0; }
+.f-logout { color: #dc2626 !important; }
+
+/* --- CORREÇÃO FINAL E DEFINITIVA PARA O DARK MODE --- */
+.dark-mode .user-flyout,
+.dark-mode .user-flyout *,
+.dark-mode .user-flyout .flyout-header,
+.dark-mode .user-flyout .flyout-items {
+    background-color: #1a2234 !important;
+    border-color: #374151 !important;
+    color: #f8fafc !important;
+    border-radius: 12px !important; /* Aplica arredondamento em TUDO dentro */
+}
+
+/* Força o container pai a ser a "máscara" de corte */
+.dark-mode .user-flyout {
+    overflow: hidden !important;
+    border: 1px solid #374151 !important;
+    border-radius: 12px !important;
+}
+
+/* Ajusta as cores de texto que podem ter ficado escuras */
+.dark-mode .user-flyout .f-title,
+.dark-mode .user-flyout .f-email,
+.dark-mode .user-flyout span,
+.dark-mode .user-flyout button {
+    color: #f8fafc !important;
+}
+
+/* Ajusta o hover dos botões */
+.dark-mode .user-flyout button:hover {
+    background-color: #2d3748 !important;
+}
+
+.dark-mode .user-scope {
+  border-radius: 50px;
+}
+
+/* --- UTILITÁRIOS --- */
+.page-title { font-size: 28px; font-weight: 700; margin-bottom: 24px; }
+.badge { padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; }
+.search-box input { background: #ffffff; }
+.rooms-filter-group input { background: #ffffff; }
+
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.u-arrow { transition: transform 0.2s ease; }
+.u-arrow.rotated { transform: rotate(180deg); }
+
+:root {
+  --bg-container: #ffffff;
+  --bg-input: #ffffff;
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --border-color: #e0e0e0;
+}
+
+.reserva-module, .reserva-table-card, .card, .reserva-form-card {
+  background-color: var(--bg-container) !important;
+  color: var(--text-primary) !important;
+}
+
+textarea {
+  background-color: var(--bg-input) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+.filter-group label { color: var(--text-primary); }
+
+@media (max-width: 1024px) {
+  .header-nav { gap: 5px; }
+  .header-nav a { font-size: 12px; padding: 6px 10px; }
+}
+
+@media (max-width: 768px) {
+  .header-nav { 
+    display: none; /* Oculta a navegação no mobile */
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background: #1d3557;
+    padding: 20px;
+  }
+  .header-nav.active { display: flex; }
+}
+
+/* --- VARIÁVEIS DO TEMA --- */
+:root {
+  --bg-page: #f4f6f8;
+  --text-main: #1f2937;
+}
+
+.dark-mode {
+  --bg-page: #0b1221;
+  --text-main: #f8fafc;
+}
+
+/* --- APLICAÇÃO --- */
+body, #root {
+  background-color: var(--bg-page) !important;
+  color: var(--text-main) !important;
+}
+
+.dashboard-container {
+  background: transparent !important;
+}
+
+/* Mantemos apenas a adaptação do que precisa mudar: texto e tabela */
+.dark-mode .secao-tabela {
+  background: #1a2234 !important; /* Exemplo: ajuste o fundo da tabela se necessário */
+  color: var(--text-main) !important;
+}
+
+/* --- ESTILO GLOBAL PARA TODOS OS INPUTS DE DATA --- */
+
+/* 1. Reset visual básico para que todos fiquem uniformes */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    filter: invert(0.2); /* Tom padrão para modo claro */
+    transition: filter 0.3s ease;
+}
+
+/* 2. Regra automática para o Dark Mode global */
+.dark-mode input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1) brightness(100%); /* Transforma em branco em todo o app */
+}
+
+/* 3. Dica profissional: melhore a área de clique globalmente */
+input[type="date"] {
+    cursor: pointer;
+}

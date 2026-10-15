@@ -1,0 +1,188 @@
+.users-container {
+    padding: 24px;
+    background-color: #f8fafc;
+    min-height: calc(100vh - 70px);
+}
+
+.header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.page-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1a2b45;
+    margin: 0;
+}
+
+/* Botão Novo Usuário */
+.btn-novo-usuario {
+    background-color: #1a2b45;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-novo-usuario:hover {
+    background-color: #2d3748;
+    transform: translateY(-1px);
+}
+
+/* Tabela e Linhas */
+.table-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+}
+
+.users-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.linha-usuario td {
+    padding: 18px 20px;
+    border-bottom: 1px solid #f1f5f9;
+    vertical-align: top;
+}
+
+/* Rótulos e Dados */
+.label-descricao {
+    display: block;
+    font-size: 10px;
+    font-weight: 800;
+    color: #94a3b8;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+}
+
+.dado-destaque {
+    font-weight: 700;
+    color: #1a2b45;
+    font-size: 15px;
+}
+
+.dado-valor {
+    color: #475569;
+    font-size: 14px;
+}
+
+.status-ativo {
+    color: #059669;
+    font-weight: 800;
+    font-size: 11px;
+    text-transform: uppercase;
+    background: #ecfdf5;
+    padding: 3px 8px;
+    border-radius: 4px;
+}
+
+/* Colunas */
+.col-nome   { width: 40%; }
+.col-perfil { width: 35%; }
+.col-status { width: 25%; text-align: right; }
+
+/* Modal Content */
+.modal-content {
+    padding: 10px 0;
+    color: #1e293b;
+    font-size: 14px;
+    width: 60%;
+}
+
+/* Container que envolve todo o conteúdo do modal */
+.form-usuario {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 32px 40px !important; /* Força o respiro lateral de 40px */
+}
+
+/* Garante que o título do modal também acompanhe esse recuo */
+.modal-header {
+    padding: 20px 40px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+/* Estrutura do Formulário */
+.form-usuario {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px 5px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+/* Coloca Senha e Permissão lado a lado */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+/* Estilo dos Inputs e Selects */
+.input-padrao {
+    padding: 10px 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #1e293b;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.input-padrao:focus {
+    border-color: #1a2b45;
+}
+
+/* Rodapé do Modal com Botões */
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #f1f5f9;
+}
+
+.btn-cancelar {
+    background: #f1f5f9;
+    color: #64748b;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-salvar {
+    background: #1a2b45;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-salvar:hover {
+    background: #2d3748;
+}

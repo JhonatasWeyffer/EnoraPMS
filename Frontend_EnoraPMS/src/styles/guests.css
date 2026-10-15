@@ -1,0 +1,483 @@
+/* Estrutura da Tabela e Avatar */
+.guest-profile-cell { display: flex; align-items: center; gap: 12px; }
+.guest-avatar {
+    width: 35px; height: 35px; background: #1a2b45; color: white;
+    border-radius: 8px; display: flex; align-items: center; justify-content: center;
+    font-weight: 800; text-transform: uppercase;
+}
+
+.fab.fa-whatsapp { color: #25d366; margin-right: 5px; }
+
+/* Modal e Formulário */
+.fnrh-form-modern { display: flex; flex-direction: column; gap: 15px; padding: 10px; }
+.fnrh-section-title { color: #1a2b45;}
+
+.form-subtitle {
+    font-size: 11px; font-weight: 800; color: #94a3b8;
+    text-transform: uppercase; letter-spacing: 0.05em;
+    margin-bottom: 15px; padding-bottom: 8px; border-bottom: 1px solid #f1f5f9;
+}
+
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+.form-grid .full { grid-column: span 2; }
+
+/* Estilização dos Campos */
+.input-group-mock { display: flex; flex-direction: column; gap: 5px; }
+.input-group-mock label { font-size: 10px; font-weight: 700; color: #64748b; text-transform: uppercase; }
+.input-group-mock input {
+    padding: 10px 14px; border-radius: 6px; border: 1px solid #e2e8f0;
+    background: #f8fafc; font-size: 14px; transition: 0.2s;
+}
+.input-group-mock input:focus { border-color: #1a2b45; background: #fff; outline: none; }
+
+.guests-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+}
+
+.dark-mode .pagination {
+    background-color: #1a2b45;
+    color: #f1f5f9;
+}
+
+.pagination button {
+    background-color: #1a2b45;
+    color: #f1f5f9;
+    border: 1px solid #334155;
+    padding: 8px 12px;
+    margin: 0 4px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.pagination button:hover {
+    background-color: #e2e8f0;
+    color: #1a2b45;
+}
+
+.dark-mode.pagination button {
+    color: #1a2b45;
+}
+
+.dark-mode .pagination button:hover {
+    background-color: #334155;
+    color: #f1f5f9;
+}
+
+/* --- CORREÇÃO DE FLUXO PARA A BARRA DE FILTRO --- */
+.fnrh-filter-bar {
+    display: flex; 
+    align-items: center; 
+    gap: 15px; 
+    padding: 20px 40px;
+    background: #f1f5f9; 
+    border-radius: 8px; 
+    margin-bottom: 20px;
+    /* Adicione isto para garantir que ele respeite os limites do pai */
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.search-box-b {
+    display: flex;
+    align-items: center;
+    flex: 1; /* Faz o container da busca crescer e encolher ocupando o espaço disponível */
+    min-width: 0; /* Essencial: permite que o flex child encolha abaixo do tamanho do conteúdo */
+}
+
+.search-box-b input {
+    width: 100%; /* Força o input a ocupar 100% do container flex */
+    flex: 1;
+    border: none;
+    border-radius: 5px;
+    background: transparent;
+    outline: none;
+    padding: 8px;
+}
+
+.search-box-b {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: #e2e8f0;
+    border-radius: 6px;
+    color: #475569;
+    font-size: 14px;
+}
+
+.search-box-b input {
+    width: 900px;
+    flex: 1;              /* ocupa todo o espaço disponível */
+    border: none;         /* remove borda padrão */
+    background: transparent; /* deixa fundo igual ao container */
+    outline: none;        /* remove highlight ao focar */
+    font-size: inherit;   /* herda tamanho da fonte */
+    color: inherit;       /* herda cor do container */
+}
+
+/* guests.css - Estilos Consolidados FNRH */
+
+/* ==========================================
+   LOADING & EMPTY STATES
+   ========================================== */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  color: #64748b;
+  font-size: 16px;
+  gap: 10px;
+}
+
+.loading-container i {
+  font-size: 20px;
+}
+
+.empty-state {
+  width: 100%; /* Força a div a ocupar toda a largura das 4 colunas */
+  text-align: center;
+  padding: 40px !important;
+  color: #94a3b8;
+  font-size: 14px;
+  box-sizing: border-box;
+  
+  /* Borda tracejada e fundo suave */
+  border: 1px dashed #cbd5e1;
+  border-radius: 8px;
+  background-color: #f8fafc; /* Opcional, dá um aspecto moderno ao bloco */
+}
+/* ==========================================
+   TABELA
+   ========================================== */
+.guest-profile-cell { 
+  display: flex; 
+  align-items: center; 
+  gap: 12px; 
+}
+
+.guest-avatar {
+  width: 35px; 
+  height: 35px; 
+  background: #1a2b45; 
+  color: white;
+  border-radius: 8px; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  font-weight: 800; 
+  font-size: 14px;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.fab.fa-whatsapp { 
+  color: #25d366; 
+  margin-right: 5px; 
+}
+
+.table-header-row {
+    color: #1f2937;
+}
+
+.table-header-row th,
+.table-row td {
+    text-align: left !important;
+}
+
+/* ==========================================
+   MODAL & FORMULÁRIO
+   ========================================== */
+.fnrh-form-modern { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 8px; 
+}
+
+/* Seções */
+.fnrh-section {
+  margin-bottom: 8px;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.fnrh-section-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #1a2b45;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.fnrh-section-title i {
+  color: #3b82f6;
+  font-size: 15px;
+}
+
+/* Grid */
+.form-grid { 
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+  gap: 15px; 
+}
+
+.form-grid .full { 
+  grid-column: span 2; 
+}
+
+/* Campos */
+.input-group-mock { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 5px; 
+}
+
+.input-group-mock label { 
+  font-size: 11px; 
+  font-weight: 700; 
+  color: #475569; 
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.input-group-mock input,
+.input-group-mock select {
+  padding: 10px 14px; 
+  border-radius: 6px; 
+  border: 1px solid #e2e8f0;
+  background: #f8fafc; 
+  font-size: 14px; 
+  transition: all 0.2s ease;
+  font-family: inherit;
+  color: #1e293b;
+}
+
+.input-group-mock input:focus,
+.input-group-mock select:focus { 
+  border-color: #1a2b45; 
+  background: #fff; 
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(26, 43, 69, 0.1);
+}
+
+.input-group-mock input::placeholder {
+  color: #94a3b8;
+}
+
+/* Campos com erro */
+.has-error input,
+.has-error select {
+  border-color: #ef4444 !important;
+  background-color: #fef2f2 !important;
+}
+
+.has-error input:focus,
+.has-error select:focus {
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1) !important;
+}
+
+.field-error {
+  color: #ef4444;
+  font-size: 11px;
+  margin-top: 2px;
+  display: block;
+  font-weight: 500;
+}
+
+/* Alertas */
+.alert {
+  padding: 12px 16px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.alert-error {
+  background: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ==========================================
+   BOTÕES DE AÇÃO
+   ========================================== */
+.form-actions {
+  margin-top: 10px;
+  display: flex; 
+  justify-content: flex-end;
+  gap: 10px; 
+  padding-top: 15px; 
+  border-top: 1px solid #f1f5f9;
+}
+
+.btn-cancel { 
+  background: #f1f5f9; 
+  color: #475569; 
+  border: none; 
+  padding: 10px 20px; 
+  border-radius: 6px; 
+  font-weight: 700; 
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-cancel:hover:not(:disabled) { 
+  background: #e2e8f0; 
+}
+
+.btn-save-fnrh { 
+  background: #1a2b45; 
+  color: white; 
+  border: none; 
+  padding: 10px 24px; 
+  border-radius: 6px; 
+  font-weight: 700; 
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-save-fnrh:hover:not(:disabled) { 
+  background: #0f172a; 
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(26, 43, 69, 0.2);
+}
+
+.btn-save-fnrh:disabled,
+.btn-cancel:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.room-badge2 {
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    color: black;
+    background-color: #f1f5f9;
+    display: inline-block;
+}
+
+.dark-mode .room-badge2 {
+    background-color: #1e293b;
+    color: #f1f5f9;
+}
+
+/* --- COMPACTO E FORÇADO (MODO CLARO) --- */
+button.btn-table-action-blue,
+.text-right button.btn-table-action-blue {
+    background: #f1f5f9 !important;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 8px !important;
+    padding: 8px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* Força o ícone interno a limpar o fundo e herdar a cor escura */
+button.btn-table-action-blue i,
+button.btn-table-action-blue .fas.fa-edit {
+    background: transparent !important;
+    background-color: transparent !important;
+    color: #475569 !important;
+}
+
+/* --- TURBO HIGH-SPECIFICITY (DARK MODE) --- */
+/* Repetir o .dark-mode e especificar que é a tag button aumenta a força do seletor ao máximo */
+html.dark-mode button.btn-table-action-blue,
+body.dark-mode button.btn-table-action-blue,
+.dark-mode .text-right button.btn-table-action-blue,
+.dark-mode button.btn-table-action-blue {
+    background: #1e293b !important;
+    background-color: #1e293b !important;
+    border-color: #334155 !important;
+}
+
+/* Força o ícone a ficar claro no Dark Mode de qualquer maneira */
+html.dark-mode button.btn-table-action-blue i,
+body.dark-mode button.btn-table-action-blue i,
+.dark-mode button.btn-table-action-blue i.fas.fa-edit {
+    background: transparent !important;
+    background-color: transparent !important;
+    color: #f1f5f9 !important;
+}
+
+/* ==========================================
+   RESPONSIVO
+   ========================================== */
+@media (max-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .form-grid .full {
+    grid-column: span 1;
+  }
+
+  .fnrh-section {
+    padding: 15px;
+  }
+
+  .form-actions {
+    flex-direction: column-reverse;
+  }
+
+  .btn-save-fnrh,
+  .btn-cancel {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .guest-profile-cell {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4s;
+  }
+
+  .fnrh-section-title {
+    font-size: 12px;
+  }
+
+  .input-group-mock input,
+  .input-group-mock select {
+    font-size: 16px; /* Previne zoom em mobile */
+  }
+}
+
+.dark-mode .search-box-b, .dark-mode .fnrh-section {
+  background-color: #1a2b45;
+}
+
+.dark-mode .table-header-row, .dark-mode .fnrh-section-title {
+  color: #e2e8f0;
+}
+
+.dark-mode .btn-save-fnrh {
+  background-color: #475569;
+}

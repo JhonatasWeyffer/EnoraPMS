@@ -1,0 +1,341 @@
+/* RESET DE ESCOPO */
+#relatorios-root {
+    --fundo-pagina: #f4f7fe;
+    --card-bg: #1d3557;
+    --texto-geral: #1d3557;
+    --input-bg: #ffffff;
+    --input-texto: #0a111a;
+    
+    background-color: var(--fundo-pagina);
+    margin: -24px !important;
+    padding: 32px !important;
+    min-height: calc(100vh - 90px) !important;
+    color: var(--texto-geral) !important;
+    font-family: sans-serif;
+}
+
+/* Header imponente */
+.topo-final__info {
+    /* margin-bottom: 35px;  */
+    border-left: 5px solid #4a6cf7;
+    padding-left: 20px;
+}
+
+.topo-final__info h2 {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin: 0;
+    letter-spacing: -0.5px;
+}
+
+/* TOPO */
+.topo-final {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.topo-final__btns {
+    display: flex;
+    gap: 10px;
+}
+
+/* CONTAINER DE FILTROS */
+.filtros-container {
+    background: var(--card);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.05);
+    margin-bottom: 20px;
+}
+
+.filtros-linha {
+    display: flex;
+    align-items: flex-end; /* ALINHAMENTO PELA BASE */
+    gap: 15px;
+    width: 100%;
+}
+
+.f-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.duas-datas {
+    display: flex;
+    gap: 8px;
+}
+
+/* INPUTS E SELECTS - PADRONIZAÇÃO TOTAL */
+#relatorios-root input, 
+#relatorios-root select {
+    height: 40px !important;
+    background: #fff !important;
+    border: 1px solid var(--borda) !important;
+    border-radius: 4px !important;
+    color: #0a111a!important;
+    padding: 0 10px !important;
+    width: 100% !important;
+}
+
+/* LABELS */
+.f-grupo label {
+    font-size: 12px;
+    color: #94a3b8;
+    font-weight: 600;
+}
+
+/* BOTÕES */
+.btn-f {
+    height: 40px;
+    padding: 0 20px;
+    border-radius: 4px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn-f.padrao { background: #1d3557!important; color: #fff!important; translate: 0 0;  transition: translate 0.1s ease-in-out;}
+.btn-f.padrao:hover {transform: translateY(-4px);}
+.btn-f.primary { background: #1d3557; color: #fff; translate: 0 0;  transition: translate 0.1s ease-in-out;}
+.btn-f.primary:hover {transform: translateY(-4px);}
+.btn-f.danger { background: #b91c1c; color: #fff; translate: 0 0;  transition: translate 0.1s ease-in-out;}
+.btn-f.danger:hover {transform: translateY(-4px);}
+.btn-f.ghost { background: #1d3557; border: 1px solid #1d1d1d; color: #fff; translate: 0 0;  transition: translate 0.1s ease-in-out;}
+.btn-f.ghost:hover {transform: translateY(-4px);}
+#relatorios-root .topo-final__btns .btn-f:not(.primary):not(.danger) { background: #fff; color: #000; }
+
+.f-btns {
+    display: flex;
+    gap: 8px;
+}
+
+/* CORREÇÃO PARA NÃO INVADIR SIDEBAR */
+.sidebar { z-index: 1001 !important; }
+
+/* ALINHAMENTO DOS KPIS */
+.kpis-row {
+    display: flex !important;
+    gap: 15px !important;
+    margin-bottom: 25px !important;
+}
+
+.kpi-card {
+    flex: 1 !important;
+    background: #1d3557 !important;
+    padding: 20px !important;
+    border-radius: 8px !important;
+    border: 1px solid rgba(255,255,255,0.05) !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.kpi-label { font-size: 12px !important; color: #94a3b8 !important; margin-bottom: 5px !important; }
+.kpi-value { font-size: 24px !important; font-weight: bold !important; color: #fff !important; }
+
+/* GRID DE GRÁFICOS */
+.charts-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important; /* Dois gráficos por linha */
+    gap: 20px !important;
+}
+
+.chart-item {
+    background: #1d3557 !important;
+    padding: 20px !important;
+    border-radius: 8px !important;
+    min-height: 300px !important;
+}
+
+.chart-item.full-width {
+    grid-column: span 2 !important; /* O log ocupa a linha toda */
+}
+
+.chart-header {
+    color: #94a3b8 !important;
+    font-size: 14px !important;
+    margin-bottom: 15px !important;
+    font-weight: 600 !important;
+}
+
+/* Força o Canvas a respeitar o container */
+canvas {
+    width: 100% !important;
+    height: 100% !important;
+    max-height: 250px !important;
+}
+
+.lista-log {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.log-item {
+    display: flex !important;
+    align-items: center !important;
+    gap: 15px !important;
+    padding: 12px 15px !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+    transition: background 0.2s;
+}
+
+.log-item:hover {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.log-time {
+    color: #3b82f6 !important; /* Azul brilhante */
+    font-weight: bold !important;
+    font-family: monospace;
+    min-width: 50px;
+}
+
+.log-msg {
+    color: #e2e8f0 !important; /* Branco acinzentado */
+    flex: 1;
+    font-size: 13px;
+}
+
+.log-tag {
+    font-size: 10px !important;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: #1e293b;
+    color: #94a3b8;
+}
+
+/* Cores das Tags para dar vida ao log */
+.log-tag.check-in { color: #10b981; border: 1px solid #10b98133; }
+.log-tag.financeiro { color: #3b82f6; border: 1px solid #3b82f633; }
+.log-tag.manutencao { color: #f59e0b; border: 1px solid #f59e0b33; }
+
+/* Estilo para as Labels e Small textos */
+.f-grupo label {
+    display: block !important;
+    font-size: 12px !important;
+    color: #94a3b8 !important;
+    margin-bottom: 8px !important;
+    font-weight: 600 !important;
+}
+
+.date-field small {
+    display: block;
+    font-size: 14px;
+    color: #94a3b8;
+    margin-bottom: 2px;
+}
+
+/* Container de Chips (Módulos) */
+.chips-container {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    min-height: 40px;
+    align-items: center;
+}
+
+.chip-placeholder {
+    font-size: 12px;
+    color: #94a3b8;
+    font-style: italic;
+}
+
+/* Estilo sugerido para os Chips que o seu JS vai criar */
+.report-chip {
+    background: #1e293b;
+    border: 1px solid #334155;
+    color: #e2e8f0;
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.report-chip.active {
+    background: #3b82f6;
+    border-color: #60a5fa;
+    color: white;
+}
+
+@media print {
+  /* 1. CONFIGURAÇÃO DA PÁGINA */
+  @page {
+    size: auto;
+    margin: 10mm;
+  }
+
+  /* 2. RESET GERAL: Esconde tudo, mas mantém o espaço */
+  body {
+    visibility: hidden !important;
+    background: white !important;
+  }
+
+    #relatorios-root input, 
+    #relatorios-root select {
+        height: 40px !important;
+        background: var(--input-bg) !important;
+        border: 1px solid #cbd5e1 !important;
+        border-radius: 4px !important;
+        color: var(--input-texto) !important;
+        padding: 0 10px !important;
+        width: 100% !important;
+    }
+
+    /* Ajuste para forçar o texto correto em todos os elementos */
+    #relatorios-root h1, 
+    #relatorios-root p, 
+    #relatorios-root .kpi-value,
+    #relatorios-root .chart-header,
+    #relatorios-root .log-msg {
+        color: var(--texto-geral) !important;
+    }
+
+  /* 5. GRÁFICOS E CARDS */
+  .chart-item, .kpi-card {
+    visibility: visible !important;
+    border: 1px solid #ddd !important;
+    break-inside: avoid !important; /* Não quebra o gráfico entre duas páginas */
+    background: #f9f9f9 !important;
+  }
+
+  /* 6. ESCONDE ELEMENTOS INÚTEIS NO PAPEL */
+  .topo-final__btns, 
+  .filtros-container,
+  button, 
+  .sidebar, 
+  .app-header {
+    display: none !important;
+  }
+
+  /* 7. AJUSTE PARA CANVAS (GRÁFICOS) */
+  canvas {
+    max-width: 100% !important;
+    height: auto !important;
+    /* Força o navegador a imprimir cores/gráficos */
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+
+.dark-mode #relatorios-root {
+    --fundo-pagina: #0f172a; /* Fundo escuro */
+    --card-bg: #1e293b;     /* Cor dos seus cards */
+    --texto-geral: #f8fafc;  /* Texto claro */
+    --input-bg: #334155;    /* Input escuro */
+    --input-texto: #ffffff;
+}
+
+.dark-mode #relatorios-root input, 
+.dark-mode #relatorios-root select {
+    background: var(--input-bg) !important;
+    color: var(--input-texto) !important;
+    border: 1px solid #475569 !important;
+}

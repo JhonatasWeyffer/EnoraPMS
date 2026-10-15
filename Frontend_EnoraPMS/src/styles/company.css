@@ -1,0 +1,182 @@
+/* Header imponente */
+.pdv-title-group {
+    /* margin-bottom: 35px;  */
+    border-left: 5px solid #4a6cf7;
+    padding-left: 20px;
+}
+
+.pdv-title-group h2 {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin: 0;
+    letter-spacing: -0.5px;
+}
+
+.pdv-subtitle {
+    font-size: 16px;
+    color: #1f2937;
+    margin: 5px 0 0 0;
+}
+
+/* Tabela e Badges */
+.badge-stay-count {
+    background: #f1f5f9;
+    color: #475569;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.btn-table-action-blue {
+    background: #f1f5f9;
+    color: #475569;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.btn-table-action-blue:hover {
+    transform: translateY(-2px);
+}
+
+/* RESTAURANDO O BOTÃO PDV PRIMARY */
+.btn-pdv-primary {
+    background: linear-gradient(135deg, #4a6cf7 0%, #3b5bdb 100%) !important;
+    color: #ffffff !important;
+    height: 48px !important;
+    padding: 0 25px !important;
+    border-radius: 12px !important;
+    border: none !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.5px !important;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) !important;
+    box-shadow: 0 4px 12px rgba(74, 108, 247, 0.25) !important;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efeito de brilho ao passar o mouse */
+.btn-pdv-primary:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(59, 91, 219, 0.4) !important;
+    filter: brightness(1.1);
+}
+
+/* Efeito de clique (feedback tátil) */
+.btn-pdv-primary:active {
+    transform: translateY(0px) !important;
+    box-shadow: 0 2px 8px rgba(74, 108, 247, 0.2) !important;
+    filter: brightness(0.95);
+}
+
+/* Estilo para o ícone dentro do botão */
+.btn-pdv-primary i {
+    font-size: 18px;
+    transition: transform 0.3s ease;
+}
+
+.btn-pdv-primary:hover i {
+    transform: scale(1.1);
+}
+
+.badge-discount {
+    background: #dcfce7;
+    color: #166534;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+/* Modal de Detalhes */
+.text-right {
+    text-align: center;
+}
+
+.billing-summary-box {
+    background: #1a2b45;
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.billing-summary-box .item {
+    display: flex;
+    flex-direction: column;
+}
+
+.billing-summary-box span { font-size: 10px; text-transform: uppercase; opacity: 0.7; }
+.billing-summary-box strong { font-size: 18px; }
+
+.discount-text { color: #4ade80; }
+.total { border-left: 1px solid rgba(255,255,255,0.1); padding-left: 20px; }
+
+.company-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.text-right {
+    text-align: center !important;
+}
+
+.dado-destaque {
+    color: #1f2937;
+}
+
+.dado-valor {
+    color: #666666;
+}
+
+.final-price-highlight {
+    color: #333333;
+}
+
+/* Lista de Funcionários */
+.employee-list {
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+}
+
+.employee-row {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    border-bottom: 1px solid #f1f5f9;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.employee-row:hover { background: #f8fafc; }
+.employee-row.selected { background: #eff6ff; }
+
+.check-indicator { margin-right: 15px; font-size: 18px; color: #1a2b45; }
+.employee-row.selected .check-indicator { color: #2563eb; }
+
+.emp-name { flex: 1; font-weight: 600; color: #1e293b; }
+.emp-status { font-size: 11px; font-weight: 700; color: #94a3b8; text-transform: uppercase; }
+.selected .emp-status { color: #2563eb; }
+
+.dark-mode .maintenance-container, .dark-mode table, .dark-mode .modal-content, .dark-mode .modal-header {
+    background-color: #1a2b45;
+}
+
+.dark-mode h1, .dark-mode p {
+    color: white;
+}

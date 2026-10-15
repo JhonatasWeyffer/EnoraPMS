@@ -1,0 +1,196 @@
+/* Estilos para a seção de Housekeeping */
+.pdv-summary-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 25px;
+    margin-bottom: 35px;
+}
+
+/* Seletor de Status dinâmico */
+.select-status-hk {
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    border: 1px solid #e2e8f0;
+    cursor: pointer;
+    outline: none;
+    transition: 0.3s;
+}
+
+.select-status-hk.sujo {
+    background-color: #fef2f2;
+    color: #ef4444;
+    border-color: #fee2e2;
+}
+
+.select-status-hk.em-limpeza {
+    background-color: #fffbeb;
+    color: #d97706;
+    border-color: #fef3c7;
+}
+
+/* Botão Liberar */
+.btn-liberar-final {
+    background: #10b981;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 800;
+    font-size: 11px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-liberar-final:hover {
+    background: #059669;
+    transform: scale(1.05);
+}
+
+/* Tags de Prioridade */
+.priority-tag {
+    font-size: 10px;
+    text-transform: uppercase;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-top: 4px;
+    display: inline-block;
+}
+.priority-tag.alta { background: #fee2e2; color: #b91c1c; }
+.priority-tag.média { background: #fef3c7; color: #92400e; }
+.priority-tag.baixa { background: #f1f5f9; color: #475569; }
+
+/* ===== NOVOS ESTILOS PARA FORMULÁRIO E FILTROS ===== */
+
+/* Filtros */
+.filtros-wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 25px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.filtro-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.filtro-grupo label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #495057;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.input-padrao-filtro {
+    padding: 8px 12px;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    font-size: 13px;
+    background: white;
+    color: #212529;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.input-padrao-filtro:focus {
+    border-color: #3b82f6;
+    background: #fff;
+}
+
+/* Badges de Status */
+.status-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.status-badge.sujo {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+.status-badge.em-limpeza {
+    background-color: #fef3c7;
+    color: #92400e;
+}
+
+.status-badge.pronto {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+
+/* Botão Editar */
+.btn-editar {
+    background: #3b82f6;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 11px;
+    cursor: pointer;
+    transition: 0.2s;
+    margin-right: 5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.btn-editar:hover {
+    background: #2563eb;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Botão Deletar */
+.btn-deletar {
+    background: #ef4444;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 11px;
+    cursor: pointer;
+    transition: 0.2s;
+    display: inline-flex;
+    align-items: center;
+}
+
+.btn-deletar:hover {
+    background: #dc2626;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsivo */
+@media (max-width: 1024px) {
+    .filtros-wrapper {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .filtros-wrapper {
+        grid-template-columns: 1fr;
+    }
+    
+    .pdv-summary-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+.dark-mode .filtros-wrapper, .dark-mode .maintenance-container, .dark-mode .summary-card, .dark-mode .avisos, .dark-mode .pdv-form-wrapper {
+    background-color: #1a2b45;
+}

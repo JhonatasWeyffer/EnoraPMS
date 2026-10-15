@@ -1,0 +1,765 @@
+/* Cabeçalho com Título à esquerda e Filtros à direita */
+.flex-header {
+    display: flex;
+    justify-content: space-between; /* Empurra os filtros para o canto direito */
+    align-items: center;
+    margin-bottom: 35px;
+    border-left: 5px solid #4a6cf7;
+    padding-left: 20px;
+    width: 100%;
+}
+
+.flex-header h2 {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin: 0;
+    letter-spacing: -0.5px;
+}
+
+.map-filters {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #1a2b45;
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.filter-group label {
+    color: #cbd5e0;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* Aumentando os ícones dentro dos cards do mapa */
+.card-icon-container {
+    font-size: 1.8rem !important; /* Ícone visivelmente maior */
+
+    transition: transform 0.2s;
+}
+
+.status-card:hover .card-icon-container {
+    transform: scale(1.1); /* Efeito de zoom ao passar o mouse */
+}
+
+/* Botão "Hoje" estilizado */
+.btn-hoje {
+    background-color: #4a6cf7;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-hoje:hover {
+    background-color: #3b5bdb;
+}
+
+.map-icon-filter {
+    color: #ffffff !important; /* Cor escura para o fundo branco */
+    font-size: 1.2rem;
+    margin-right: 5px;
+}
+
+/* Ajuste nos inputs para não esticarem demais */
+.date-input {
+    max-width: 150px;
+    padding: 6px 10px;
+    border: 1px solid #1a2b45;
+    border-radius: 5px;
+}
+
+.date-input::-webkit-calendar-picker-indicator {
+    opacity: 1 !important;
+    cursor: pointer;
+}
+
+.reservation-grid-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background: transparent;
+}
+
+.room-row-container {
+    display: flex;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+}
+
+/* Sidebar com o número do quarto */
+.room-sidebar {
+    width: 100px;
+    background: #1a2b45;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-right: 2px solid #2d3748;
+}
+
+.room-number { font-size: 1.4rem; font-weight: bold; }
+.room-type { font-size: 0.7rem; opacity: 0.7; text-transform: uppercase; }
+
+/* Ajuste para ocupar todo o espaço da linha */
+.days-scroll-container {
+    display: flex;
+    flex: 1;
+    gap: 10px; /* Espaço entre os cards */
+    padding: 10px;
+    justify-content: space-between; /* Estica os cards para as extremidades */
+}
+
+.status-card {
+    flex: 1; /* Faz cada card crescer igualmente para ocupar o espaço */
+    min-width: 120px; /* Largura mínima para não achatar em telas pequenas */
+    height: 120px; /* Aumentei um pouco a altura como você pediu */
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    position: relative;
+    transition: 0.2s;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Container do Ícone */
+.card-icon-container {
+    font-size: 2rem; /* Tamanho do ícone */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px; 
+}
+
+/* Garantir que o ícone do FontAwesome seja branco e visível */
+.card-icon-container i {
+    color: white;
+    display: block !important;
+}
+
+.card-day-label {
+    position: absolute;
+    top: 8px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.card-status-name {
+    font-size: 0.65rem;
+    font-weight: 800;
+    margin-top: 5px;
+}
+
+/* Container Principal da Legenda */
+.map-legend {
+    display: flex;
+    justify-content: center; /* Centraliza a legenda na tela */
+    align-items: center;
+    gap: 30px; /* Dá um espaço grande entre cada item da legenda */
+    margin-top: 30px; /* Separa a legenda do grid de quartos */
+    padding: 20px;
+    background-color: white; /* Dá um fundo branco para destacar */
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.dark-mode .map-legend {
+    background-color: #4a5568;
+}
+
+/* O Item Individual (Caixinha + Texto) */
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espaço entre a caixinha colorida e o texto */
+    font-size: 14px;
+    color: #4a5568;
+    font-weight: 600;
+}
+
+/* A Caixinha Colorida */
+.box {
+    width: 20px; /* Tamanho fixo da caixinha */
+    height: 20px;
+    border-radius: 6px; /* Bordas arredondadas como os cards */
+    display: inline-block; /* Garante que ela ocupe espaço */
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.1); /* Um leve efeito interno */
+}
+
+.livre { background-color: #2ecc71; }
+.ocupado { background-color: #ff4d4d; }
+.reservado { background-color: #3498db; }
+.limpeza { background-color: #f1c40f; }
+.manutencao { background-color: #e67e22; }
+
+/* Scrollbar fina para não poluir o visual */
+.days-scroll-container::-webkit-scrollbar { height: 4px; }
+.days-scroll-container::-webkit-scrollbar-thumb { background: #cbd5e0; border-radius: 10px; }
+
+/* Fundo Rooms */
+.dark-mode .rooms-filter-bar {
+    background-color: #1a2b45;
+}
+
+/* ===== ESTRUTURA DO LAYOUT SPLIT (SUGESTÃO 3) ===== */
+
+.split-page-container {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 40px);
+    gap: 20px;
+}
+
+.split-layout-body {
+    display: flex;
+    flex: 1;
+    gap: 24px;
+    min-height: 0; /* Impede quebras de overflow do flexbox */
+}
+
+/* COLUNA ESQUERDA - LISTAGEM DE QUARTOS FIXED */
+.split-left-sidebar {
+    width: 320px;
+    background: #f8fafc;
+    border: 1px solid #1e293b;
+    border-radius: 12px;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.dark-mode .split-left-sidebar {
+    background: #1a2b45;
+    border-color: #2d3748;
+}
+
+.split-floor-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.split-floor-title {
+    font-size: 12px;
+    font-weight: 800;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid #1e293b;
+    padding-bottom: 6px;
+}
+
+.split-rooms-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* CARD/BOTÃO DO QUARTO NA ESQUERDA */
+.split-room-row-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    background: #1e293b;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.split-room-row-btn:hover {
+    background: #273549;
+    transform: translateX(4px);
+}
+
+.split-room-row-btn.active-selection {
+    border-color: #4a6cf7;
+    background: #1d2e54;
+    box-shadow: 0 4px 12px rgba(74, 108, 247, 0.15);
+}
+
+.split-btn-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.split-room-num {
+    font-size: 16px;
+    font-weight: 800;
+    color: #ffffff;
+}
+
+.split-room-type {
+    font-size: 11px;
+    color: #94a3b8;
+}
+
+.split-btn-status-badge {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 20px;
+    color: #ffffff;
+}
+
+/* Indicadores de status do botão lateral esquerdo */
+.split-room-row-btn.livre .split-btn-status-badge { background: #10b981; }
+.split-room-row-btn.ocupado .split-btn-status-badge { background: #ef4444; }
+.split-room-row-btn.reservado .split-btn-status-badge { background: #3b82f6; }
+.split-room-row-btn.limpeza .split-btn-status-badge { background: #f59e0b; }
+.split-room-row-btn.manutencao .split-btn-status-badge { background: #64748b; }
+
+/* COLUNA DIREITA - PAINEL DE FOCO PRINCIPAL */
+.split-right-panel {
+    flex: 1;
+    background: #f8fafc;
+    border: 1px solid #1e293b;
+    border-radius: 12px;
+    padding: 24px;
+    overflow-y: auto;
+}
+
+.dark-mode .split-right-panel {
+    background: #1a2b45;
+    border-color: #2d3748;
+}
+
+.focus-panel-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Cabeçalho do painel de foco */
+.focus-room-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #1e293b;
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 5px solid #4a6cf7;
+}
+
+.focus-room-badge h2 {
+    font-size: 28px;
+    font-weight: 900;
+    color: #fff;
+    margin: 0;
+    line-height: 1;
+}
+
+.focus-room-badge span {
+    font-size: 12px;
+    color: #94a3b8;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.focus-room-status-now {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+}
+
+.focus-room-status-now span {
+    font-size: 12px;
+    color: #64748b;
+}
+
+.status-pill {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.status-pill.livre { background: #10b981; }
+.status-pill.ocupado { background: #ef4444; }
+.status-pill.reservado { background: #3b82f6; }
+.status-pill.limpeza { background: #f59e0b; }
+.status-pill.manutencao { background: #64748b; }
+.status-pill.status-pendente { background: #f59e0b; }
+
+.dark-mode.status-card .status-pill.livre { background: #059669; }
+.dark-mode.status-card .status-pill.ocupado { background: #dc2626; }
+.dark-mode.status-card .status-pill.reservado { background: #2563eb; }
+.dark-mode.status-card .status-pill.status-pendente { background: #f59e0b; }
+.dark-mode.status-card .status-pill.limpeza { background: #d97706; }
+.dark-mode.status-card .status-pill.manutencao { background: #475569; }
+
+/* GRID DOS 7 DIAS REFORMULADO */
+.section-title-timeline {
+    font-size: 14px;
+    font-weight: 700;
+    color: #64748b;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.dark-mode .section-title-timeline {
+    color: #cbd5e1;
+}
+
+.focus-timeline-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 12px;
+}
+
+.focus-timeline-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px 10px;
+    border-radius: 8px;
+    color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+}
+
+.focus-card-day {
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    opacity: 0.9;
+    margin-bottom: 8px;
+}
+
+.focus-card-icon {
+    font-size: 20px;
+    margin-bottom: 6px;
+}
+
+.focus-card-status-name {
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.focus-card-footer-action {
+    font-size: 10px;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 2px 8px;
+    border-radius: 4px;
+    width: 100%;
+    text-align: center;
+    opacity: 0.7;
+}
+
+.focus-timeline-card.livre { background: linear-gradient(135deg, #10b981, #059669); }
+.focus-timeline-card.ocupado { background: linear-gradient(135deg, #ef4444, #dc2626); }
+.focus-timeline-card.reservado { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+.focus-timeline-card.limpeza { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.focus-timeline-card.manutencao { background: linear-gradient(135deg, #64748b, #475569); }
+
+/* SEÇÃO DE AÇÕES RÁPIDAS NO PMS */
+.focus-quick-actions h3 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--cor-acent);
+    margin-bottom: 12px;
+}
+
+.dark-mode.focus-quick-actions {
+    color: #cbd5e1;
+}
+
+/* Variáveis de Tema para o Modal (Fácil manutenção de Dark Mode) */
+:root {
+  --modal-overlay: rgba(15, 23, 42, 0.75);
+  --modal-bg: #ffffff;
+  --modal-border: #e2e8f0;
+  --modal-title: #0f172a;
+  --modal-subtitle: #64748b;
+  --modal-text: #334155;
+  --modal-text-light: #64748b;
+  --modal-error-bg: #fef2f2;
+  --modal-error-border: #fee2e2;
+  --modal-btn-bg: #ffe4e6;
+  --modal-footer-btn: #64748b;
+  --modal-footer-btn-txt: #ffffff;
+}
+
+/* Quando a classe .dark ou .dark-mode estiver ativa no body/container */
+.dark, .dark-mode {
+  --modal-overlay: rgba(15, 23, 42, 0.85);
+  --modal-bg: #1e293b;
+  --modal-border: #334155;
+  --modal-title: #ffffff;
+  --modal-subtitle: #94a3b8;
+  --modal-text: #e2e8f0;
+  --modal-text-light: #94a3b8;
+  --modal-error-bg: #0f172a;
+  --modal-error-border: #334155;
+  --modal-footer-btn: #334155;
+  --modal-footer-btn-txt: #ffffff;
+}
+
+/* Classes Estruturais do Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--modal-overlay);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  font-family: inherit;
+}
+
+.modal-container {
+  background: var(--modal-bg);
+  width: 100%;
+  max-width: 450px;
+  border-radius: 12px;
+  padding: 24px;
+  border: 1px solid var(--modal-border);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.modal-header h3 {
+  margin: 0;
+  color: var(--modal-title);
+  font-size: 18px;
+}
+
+.modal-date {
+  font-size: 12px;
+  color: var(--modal-subtitle);
+  display: block;
+  margin-top: 2px;
+}
+
+.modal-close-btn {
+  background: transparent;
+  border: none;
+  color: var(--modal-subtitle);
+  cursor: pointer;
+  font-size: 18px;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+}
+
+.modal-close-btn:hover {
+  color: var(--modal-title);
+}
+
+.modal-loading {
+  color: var(--modal-subtitle);
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+}
+
+.modal-body .detail {
+  margin-bottom: 15px;
+}
+
+.modal-body .status-pill {
+  display: inline-flex;
+}
+
+/* Box de Erro */
+.modal-error-box {
+  background: var(--modal-error-bg);
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid var(--modal-error-border);
+}
+
+.modal-error-title {
+  font-size: 11px;
+  color: #ef4444;
+  display: block;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.modal-error-text {
+  margin: 0;
+  color: var(--modal-text);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+/* Lista de Informações (Fluxo Normal) */
+.modal-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.modal-info-label {
+  font-size: 11px;
+  color: var(--modal-text-light);
+  display: block;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 2px;
+}
+
+.modal-info-value-strong {
+  font-size: 15px;
+  color: var(--modal-title);
+}
+
+.modal-info-value-text {
+  font-size: 13px;
+  color: var(--modal-text);
+}
+
+/* Estado Livre */
+.modal-empty-box {
+  text-align: center;
+  padding: 15px 0;
+}
+
+.modal-empty-text {
+  margin: 0;
+  color: var(--modal-text);
+  font-size: 14px;
+}
+
+/* Rodapé */
+.modal-footer {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modal-footer-btn {
+  background: var(--modal-footer-btn);
+  color: var(--modal-footer-btn-txt);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+  transition: opacity 0.2s;
+}
+
+.modal-footer-btn:hover {
+  opacity: 0.9;
+}
+
+/* --------- xxxxxxxx ---------- */
+
+.actions-button-group {
+    display: flex;
+    gap: 12px;
+}
+
+.action-btn-pms {
+    flex: 1;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background 0.2s;
+}
+
+.action-btn-pms.primary { background: #4a6cf7; color: white; border: none; }
+.action-btn-pms.primary:hover { background: #3b5bdb; }
+.action-btn-pms.secondary { background: #1e293b; color: white; border: 1px solid #334155; }
+.action-btn-pms.secondary:hover { background: #273549; }
+.action-btn-pms.outline { background: transparent; color: #ef4444; border: 1px solid #ef4444; }
+.action-btn-pms.outline:hover { background: rgba(239, 68, 68, 0.1); }
+.action-btn-pms.outline i { color: #ef4444; }
+
+.dark-mode .action-btn-pms.secondary { background: #2d3748; border-color: #4b5563; }
+.dark-mode .action-btn-pms.secondary:hover { background: #3b4754; }
+.dark-mode .action-btn-pms.outline { color: #f87171; border-color: #f87171; }
+.dark-mode .action-btn-pms.outline:hover { background: rgba(248, 113, 113, 0.1); }
+.dark-mode .action-btn-pms.outline i { color: #f87171!important; }
+
+.split-empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: 10px;
+    color: #64748b;
+}
+
+.custom-sidebar-scroll::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.custom-sidebar-scroll::-webkit-scrollbar-track {
+    background: #111c30;
+    border-radius: 10px;
+}
+
+.custom-sidebar-scroll::-webkit-scrollbar-thumb {
+    background: #94a3b8;
+    border-radius: 10px;
+    border: 1px solid #cbd5e1;
+}
+
+.custom-sidebar-scroll::-webkit-scrollbar-thumb:hover {
+    background: #e2e8f0;
+}
+
+/* Firefox */
+.custom-sidebar-scroll {
+    scrollbar-width: auto;
+    scrollbar-color: #94a3b8 #111c30;
+    overflow-y: auto;
+}

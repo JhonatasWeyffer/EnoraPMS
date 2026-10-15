@@ -1,0 +1,1121 @@
+/* Reset sutil e fonte padrão do sistema */
+.pdv-dashboard-container {
+    padding: 30px 40px; /* Aumentei o padding lateral para 40px */
+    background-color: #fcfcfc; /* Fundo ligeiramente diferente para destacar os cards */
+    font-family: 'Inter', system-ui, sans-serif;
+    color: #1e293b;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+/* --- CABEÇALHO REFINADO: Alinhamento perfeito --- */
+.pdv-page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Centraliza verticalmente o título e os botões */
+    margin-bottom: 35px;
+    gap: 30px;
+}
+
+.pdv-main-title {
+    font-size: 28px;
+    font-weight: 900;
+    color: #1a2b45; /* Azul marinho denso padrão */
+    margin: 0;
+    letter-spacing: -0.5px;
+}
+
+.pdv-subtitle {
+    color: #94a3b8; /* Cinza suave mas legível */
+    font-size: 14px;
+    margin-top: 6px;
+    margin-bottom: 0;
+}
+
+.pdv-action-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Botão Primário Denso (Estilo Hotelaria Premium) */
+.btn-pdv-primary-b {
+    background-color: #1a2b45;
+    color: white;
+    padding: 13px 25px;
+    border-radius: 9px;
+    font-weight: 700;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(26, 43, 69, 0.15); /* Sombra mais densa */
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-pdv-primary-b:hover {
+    background-color: #2d3748;
+    transform: translateY(-1px);
+}
+    
+.btn-pdv-primary-b.active {
+    background-color: #ef4444; /* Vermelho para Cancelar */
+    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.2);
+}
+
+/* Botão Secundário para Relatórios */
+.btn-icon-secondary {
+    background: #f1f5f9;
+    color: #64748b;
+    border: none;
+    padding: 13px 20px;
+    border-radius: 9px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-icon-secondary:hover {
+    background: #e2e8f0;
+    color: #1a2b45;
+}
+
+.btn-icon-secondary:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    background: #f8fafc;
+    color: #94a3b8;
+}
+
+
+/* --- CARDS DE RESUMO REFINADOS --- */
+.pdv-summary-row-b {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    gap: 25px;
+    margin-bottom: 35px;
+}
+
+.summary-card {
+    background: white;
+    padding: 28px; /* Ajuste para equilibrar conteúdo */
+    border-radius: 14px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.03); /* Sombra suave mas presente */
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Alinha o conteúdo ao topo */
+}
+
+/* Card de Saldo com cor de destaque lateral */
+.balance-card {
+    border-left: 6px solid #1a2b45;
+}
+
+.dark-mode .balance-card {
+    border-left: 6px solid #94a3b8;
+}
+
+.alert-card {
+    border-left: 6px solid #2563eb;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+
+.sefaz-status-card .summary-label{
+    margin-bottom: 30px;
+}
+
+.status-indicator {
+    margin-bottom: 20px;
+}
+
+.summary-label {
+    display: block;
+    font-size: 12px;
+    font-weight: 800;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 12px;
+}
+
+.summary-value {
+    font-size: 40px; /* Mais destaque no valor */
+    font-weight: 900;
+    margin: 0;
+    letter-spacing: -1.5px;
+}
+
+/* Status Sefaz Online */
+.status-indicator {
+    font-size: 15px;
+    font-weight: 800;
+    color: #059669; /* Verde Online */
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Ponto de status pulsante */
+.online-pulse {
+    height: 12px;
+    width: 12px;
+    background-color: #10b981;
+    border-radius: 50%;
+    animation: pdvPulse 2s infinite;
+}
+
+/* --- FORMULÁRIO DE CADASTRO PDV --- */
+.pdv-form-wrapper {
+    background: white;
+    padding: 30px;
+    border-radius: 14px;
+    border: 1px solid #e2e8f0;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.03);
+}
+
+.pdv-form {
+    display: flex;
+    flex-wrap: wrap; /* Isso faz os itens pularem para baixo se não houver espaço */
+    gap: 15px;
+    align-items: flex-end;
+    width: 100%;
+}
+
+/* Ajuste para telas menores: quebra em duas linhas se necessário */
+@media (max-width: 1100px) {
+    .pdv-form {
+        grid-template-columns: 1fr 1fr;
+    }
+    .btn-confirm-sale {
+        grid-column: span 2;
+    }
+}
+
+.input-group .rounded-md{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    height: 45px;
+    padding: 0 15px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    background-color: #f8fafc;
+    color: #1a2b45;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+/* Estilização dos Inputs e Selects */
+.input-padrao {
+    height: 45px;
+    padding: 0 15px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    background-color: #f8fafc;
+    color: #1a2b45;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.input-padrao:focus {
+    outline: none;
+    border-color: #1a2b45;
+    background-color: white;
+    box-shadow: 0 0 0 3px rgba(26, 43, 69, 0.1);
+}
+
+.input-padrao::placeholder {
+    color: #94a3b8;
+    font-weight: 400;
+}
+
+/* Botão de Finalizar Venda */
+.btn-confirm-sale {
+    height: 45px;
+    background-color: #10b981; /* Verde Sucesso */
+    color: white;
+    border: none;
+    padding: 0 15px;
+    border-radius: 8px;
+    font-weight: 800;
+    font-size: 12px;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.2s;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+}
+
+.btn-confirm-sale:hover {
+    background-color: #059669;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(16, 185, 129, 0.3);
+}
+
+/* Card de alertas mais elegante */
+.alert-card {
+    border-left: 6px solid #2563eb;
+    min-height: 220px;
+}
+
+.alert-card .card-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: stretch;
+    width: 100%;
+}
+
+.alert-card .summary-label {
+    color: #334155;
+    letter-spacing: 0;
+    font-size: 13px;
+    text-transform: uppercase;
+    margin-bottom: 0;
+}
+
+.alert-input {
+    width: 100%;
+    min-height: 160px;
+    padding: 18px 20px;
+    border-radius: 14px;
+    border: 1px solid #cbd5e1;
+    background-color: #f8fafc;
+    color: #0f172a;
+    font-size: 15px;
+    line-height: 1.7;
+    resize: vertical;
+    box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.06);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.alert-input:focus {
+    outline: none;
+    border-color: #2563eb;
+    background-color: white;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+}
+
+.alert-input::placeholder {
+    color: #94a3b8;
+    font-weight: 500;
+}
+
+
+/* Animação de entrada suave */
+.animate-in {
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.btn-hoje {
+    background-color: #4a6cf7;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-hoje:hover {
+    background-color: #3b5bdb;
+    transform: translateY(-1px);
+}
+
+/* --- ESTILOS DO MODAL --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(26, 43, 69, 0.7); /* Fundo escuro com a cor do sistema */
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(4px); /* Efeito de desfoque ao fundo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modal-content {
+    background: white;
+    width: 90%;
+    max-width: 900px;
+    border-radius: 16px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+}
+
+.modal-header {
+    padding: 20px 30px;
+    background: #f8fafc;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h3 {
+    margin: 0;
+    color: #1a2b45;
+    font-weight: 800;
+}
+
+.btn-close-modal {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #94a3b8;
+    cursor: pointer;
+}
+
+.modal-body {
+    padding: 30px;
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.modal-body h3 {
+    margin-top: 0;
+    color: #1a2b45;
+    font-weight: 800;
+}
+
+.dark-mode .modal-body h3 {
+    color: #f8fafc;
+}
+
+.pdv-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.pdv-table th {
+    padding: 12px 15px;
+    border-bottom: 1px solid #e2e8f0;
+    text-align: left;
+    color: #475569;
+    font-weight: 700;
+    background-color: #f8fafc;
+}
+
+.pdv-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #e2e8f0;
+    text-align: left;
+    color: #1e293b;
+}
+
+.dark-mode .pdv-table td {
+    color: #f8fafc;
+}
+
+.pdv-table th, .pdv-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #e2e8f0;
+    text-align: left;
+}
+
+.modal-footer {
+    padding: 20px 30px;
+    border-top: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.preco {
+    color: #059669 !important;
+    font-weight: 800;
+}
+
+.dark-mode .pdv-dashboard-container {
+    background-color: #1a2b45;
+}
+
+.dark-mode .btn-pdv-primary-b {
+    background-color: #4a6cf7;
+}
+
+/* --- CORREÇÃO DO ÍCONE NO BOTÃO SECUNDÁRIO --- */
+.dark-mode .btn-icon-secondary {
+    background-color: #2d3748 !important; /* Ajuste para o fundo do dark-mode */
+    color: #f8fafc !important; /* Cor do texto no dark-mode */
+}
+
+/* Garante que o ícone (i) herde a cor do botão pai */
+.dark-mode .btn-icon-secondary i {
+    color: #f8fafc !important;
+}
+
+/* Opcional: Ajuste de hover para o dark-mode */
+.dark-mode .btn-icon-secondary:hover {
+    background-color: #4a5568 !important;
+}
+
+/* --- NOVO DESIGN DO GRID DE CARDS --- */
+.pdv-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 35px;
+}
+
+@media (max-width: 1200px) {
+    .pdv-summary-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.income-card { border-left: 6px solid #10b981; }
+.expense-card { border-left: 6px solid #ef4444; }
+.count-card { border-left: 6px solid #64748b; }
+
+/* --- ESTRUTURA EM DUAS COLUNAS DO CONTEÚDO --- */
+.pdv-main-content-layout {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 25px;
+    align-items: start;
+}
+
+.pdv-table-wrapper {
+    display: block;
+    height: 400px;
+    max-height: 450px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-radius: 8px;
+    padding-right: 8px;
+}
+
+/* Deixe estes aqui no CSS, pois eles não geram o erro */
+.pdv-table-wrapper::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+.pdv-table-wrapper::-webkit-scrollbar-track {
+    background: transparent;
+}
+.pdv-table-wrapper::-webkit-scrollbar-thumb {
+    background-color: #475569;
+    border-radius: 9999px;
+}
+
+/* Força a tabela interna a preencher o espaço sem estourar as laterais */
+.pdv-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed; /* Garante que as colunas mantenham a proporção correta */
+}
+
+/* Customização da Barra para Chrome, Edge e Safari (Para garantir que ela fique visível no Dark Mode) */
+.pdv-table-wrapper::-webkit-scrollbar {
+    width: 8px; /* Aumentei para 8px para ficar bem visível no teste */
+}
+
+.pdv-table-wrapper::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05); /* Um fundo levemente visível no modo escuro */
+    border-radius: 10px;
+}
+
+.pdv-table-wrapper::-webkit-scrollbar-thumb {
+    background-color: #475569; /* Cor cinza contrastante com o seu fundo escuro */
+    border-radius: 10px;
+    border: 2px solid transparent; /* Dá um efeito sutil de espaçamento */
+}
+
+.pdv-table-wrapper::-webkit-scrollbar-thumb:hover {
+    background-color: #64748b; /* Destaca ao passar o mouse */
+}
+
+@media (max-width: 1024px) {
+    .pdv-main-content-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- ESTILIZAÇÃO DO SIDEBAR DE OPERAÇÕES DE HOTELARIA --- */
+.hotel-ops-sidebar {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 24px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.03);
+}
+
+.dark-mode .hotel-ops-sidebar {
+    background: #1e293b;
+    border-color: #374151;
+    color: #f8fafc;
+}
+
+.sidebar-title {
+    font-size: 16px;
+    font-weight: 800;
+    color: #1a2b45;
+    margin: 0 0 4px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.dark-mode .sidebar-title {
+    color: #f8fafc;
+}
+
+.ops-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+.dark-mode .ops-item {
+    background: #2d3748;
+    border-color: #4b5563;
+    color: #f8fafc;
+}
+
+.ops-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px;
+    border-radius: 10px;
+    background: #f8fafc;
+    border: 1px solid #f1f5f9;
+}
+
+.ops-icon-wrapper {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+}
+
+.ops-icon-wrapper.checkin { background: #e6f4ea; color: #137333; }
+.ops-icon-wrapper.checkout { background: #fce8e6; color: #c5221f; }
+.ops-icon-wrapper.occupation { background: #e8f0fe; color: #1a73e8; }
+.dark-mode .ops-icon-wrapper.checkin {
+    background: #064e3b !important;
+    color: #34d399 !important;
+}
+
+.dark-mode .ops-icon-wrapper.checkout {
+    background: #7f1d1d !important;
+    color: #f87171 !important;
+}
+
+.dark-mode .ops-icon-wrapper.occupation {
+    background: #1e3a8a !important;
+    color: #60a5fa !important;
+}
+
+.ops-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.ops-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #64748b;
+}
+
+.ops-qty {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-top: 2px;
+}
+
+.sidebar-footer-tip {
+    font-size: 12px;
+    line-height: 1.5;
+    color: #64748b;
+    background: #fff9db;
+    border-radius: 8px;
+    padding: 12px;
+    display: flex;
+    gap: 10px;
+    border: 1px solid #fff3bf;
+}
+
+.dark-mode .sidebar-footer-tip {
+    background: #1e293b;
+    border-color: #374151;
+    color: #f8fafc;
+}
+
+.sidebar-footer-tip i {
+    color: #f59f00;
+    margin-top: 2px;
+}
+
+/* Utilitários Extras para os textos de Caixa */
+.text-entrada { color: #10b981 !important; }
+.text-saida { color: #ef4444 !important; }
+.font-bold { font-weight: 700; }
+
+.modal-content {
+    background: white;
+    width: 90%;
+    max-width: 900px;
+    border-radius: 16px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+}
+
+.modal-header {
+    padding: 20px 30px;
+    background: #f8fafc;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h3 {
+    margin: 0;
+    color: #1a2b45;
+    font-weight: 800;
+}
+
+.btn-close-modal {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #94a3b8;
+    cursor: pointer;
+}
+
+.modal-body {
+    padding: 30px;
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.reminders-modal-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 0.95fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.reminders-panel,
+.reminder-form-panel {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+    padding: 24px;
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+}
+
+.dark-mode .reminders-panel, .dark-mode .reminder-form-panel {
+    background: #1e293b;
+    border-color: #374151;
+    color: #f8fafc;
+}
+
+.reminders-panel h3,
+.reminder-form-panel h3 {
+    margin-top: 0;
+    margin-bottom: 18px;
+    color: #102a43;
+    font-size: 1.1rem;
+    letter-spacing: -0.02em;
+}
+
+.reminders-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 14px;
+}
+
+.reminder-item {
+    padding: 18px 20px;
+    border-radius: 16px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.reminder-item:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 14px 28px rgba(15, 23, 42, 0.08);
+}
+
+.reminder-item strong {
+    display: block;
+    font-size: 0.98rem;
+    margin-bottom: 8px;
+    color: #102a43;
+}
+
+.reminder-description {
+    color: #334155;
+    line-height: 1.75;
+    margin-bottom: 10px;
+}
+
+.reminder-meta {
+    color: #64748b;
+    font-size: 0.82rem;
+}
+
+.empty-state {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 22px;
+    border-radius: 16px;
+    background: #f8fafc;
+    border: 1px dashed #cbd5e1;
+    color: #475569;
+}
+
+.dark-mode .empty-state {
+    background: #1e293b;
+    border-color: #4b5563;
+    color: #f8fafc;
+}
+
+.empty-state i {
+    color: #60a5fa;
+    font-size: 1rem;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.reminder-textarea {
+    min-height: 180px;
+    width: 100%;
+}
+
+
+/* ==========================================================================
+   ADICIONADO EXCLUSIVAMENTE PARA ISOLAMENTO E FIX DO MODAL DE LEMBRETES 
+   ========================================================================== */
+
+/* 1. LIMITAR ALTURA E ADICIONAR SCROLL NA LISTA */
+.reminders-list {
+    max-height: 360px;    /* Altura limite confortável */
+    overflow-y: auto;     /* Ativa o scroll interno */
+    padding-right: 6px;   /* Evita que o scroll monte por cima do texto */
+}
+
+.reminders-list::-webkit-scrollbar {
+    width: 5px;
+}
+
+.reminders-list::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+}
+
+/* 2. ESTILOS DO CONTEÚDO DE TEXTO INTERNO DO NOVO LEMBRETE (IMAGEM 1 CORREÇÃO) */
+.reminder-form-panel .form-group input,
+.reminder-form-panel .form-group textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background-color: #f8fafc;
+    color: #0f172a;
+    font-family: inherit;
+    font-size: 14px;
+    transition: border-color 0.15s ease;
+}
+
+.reminder-form-panel .form-group textarea {
+    min-height: 100px; /* Reduzido para encaixar perfeitamente no grid */
+    resize: none;      /* Remove o seletor manual de tamanho que quebra o layout */
+}
+
+.reminder-form-panel .form-group input:focus,
+.reminder-form-panel .form-group textarea:focus {
+    outline: none;
+    border-color: #1a2b45;
+    background-color: #ffffff;
+}
+
+/* Alinhamento da linha de botões do formulário */
+.reminder-form-panel .form-actions-row {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+/* 3. CLASSE PARA MARCAÇÃO VISUAL: LIDO / RESOLVIDO */
+.reminder-item.read {
+    background: #f1f5f9;
+    border-color: #e2e8f0;
+    opacity: 0.6;
+}
+
+.reminder-item.read strong {
+    text-decoration: line-through;
+    color: #64748b;
+}
+
+.reminder-item.read .reminder-description {
+    color: #64748b;
+}
+
+/* Área interna inferior do card para o botão "Marcar como visto" */
+.reminder-item-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+    padding-top: 8px;
+    border-top: 1px dashed #e2e8f0;
+}
+
+.btn-mark-read {
+    background: #e0f2fe;
+    color: #0369a1;
+    border: none;
+    padding: 5px 12px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-mark-read:hover {
+    background: #bae6fd;
+}
+
+/* ==========================================================================
+   ESTILIZAÇÃO E CORREÇÃO COMPLETA DO MODAL DE LEMBRETES
+   ========================================================================== */
+
+/* Grid principal do modal */
+.reminders-modal-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: start;
+    min-width: 750px;
+}
+
+/* Painel da Esquerda - Container de Scroll */
+.reminders-panel {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+    padding: 24px;
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+    color: #102a43;
+}
+
+.dark-mode .reminders-panel {
+    background-color: #1e293b;
+    border-color: #374151;
+    color: #f8fafc;
+}
+
+.reminders-scroll-container {
+    max-height: 280px; /* Limita a altura máxima para forçar o scroll */
+    overflow-y: auto;  /* Ativa o scroll vertical apenas quando necessário */
+    padding-right: 8px;
+}
+
+/* Customização sutil da barra de rolagem */
+.reminders-scroll-container::-webkit-scrollbar {
+    width: 6px;
+}
+.reminders-scroll-container::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+.reminders-scroll-container::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+/* Estilização dos cards de lembretes internos */
+.reminder-item {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 12px;
+    list-style: none;
+}
+.reminder-description {
+    font-size: 13px;
+    color: #475569;
+    margin-top: 4px;
+    white-space: pre-wrap;
+}
+.reminder-meta {
+    font-size: 11px;
+    color: #94a3b8;
+    margin-top: 8px;
+}
+
+/* Painel da Direita - Formulário */
+.reminder-form-flex {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Correção visual do Textarea (IDÊNTICO ao input padrão da imagem) */
+.reminder-textarea {
+    min-height: 110px;
+    resize: none;
+    font-family: inherit;
+    padding: 10px 12px;
+    line-height: 1.5;
+}
+
+/* CONTAINER DOS BOTÕES - Alinhamento horizontal perfeito à direita */
+.reminder-actions-row {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: flex-end !important;
+    align-items: center !important;
+    gap: 8px !important;
+    margin-top: 8px !important;
+    width: 100% !important;
+}
+
+/* Reset e padronização dos botões do modal de lembrete */
+.reminder-actions-row button {
+    height: 38px !important;
+    padding: 0 16px !important;
+    border-radius: 6px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    white-space: nowrap;
+}
+
+/* Botão Visto (Igual ao seu print da esquerda: azul claro com texto azul) */
+.btn-visto-action {
+    background-color: #e0f2fe !important;
+    color: #0284c7 !important;
+}
+.btn-visto-action:hover:not(:disabled) {
+    background-color: #bae6fd !important;
+}
+.btn-visto-action.disabled, .btn-visto-action:disabled {
+    background-color: #f1f5f9 !important;
+    color: #94a3b8 !important;
+    cursor: not-allowed;
+}
+
+/* Botão Fechar */
+.btn-fechar-action {
+    background-color: #f1f5f9 !important;
+    color: #475569 !important;
+}
+.btn-fechar-action:hover {
+    background-color: #e2e8f0 !important;
+}
+
+/* Botão Salvar Lembrete */
+.btn-salvar-action {
+    background-color: #1e293b !important;
+    color: #ffffff !important;
+}
+.btn-salvar-action:hover {
+    background-color: #0f172a !important;
+}
+
+.dark-mode .btn-salvar-action {
+    background-color: #94a3b8 !important;
+    color: #1e293b !important;
+}
+.dark-mode .btn-salvar-action:hover {
+    background-color: #64748b !important;
+    color: #1e293b !important;
+}
+
+/* Alinhamento do Estado Vazio */
+.empty-state-modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    color: #94a3b8;
+    gap: 8px;
+    border: 2px dashed #e2e8f0;
+    border-radius: 8px;
+    font-size: 13px;
+}
+
+/* ==========================================================================
+   MUDANÇA VISUAL DOS LEMBRETES VISTOS
+   ========================================================================== */
+
+/* Força o container do card a ficar cinza e opaco */
+li.reminder-item.read {
+    background-color: #f1f5f9 !important;
+    border-color: #cbd5e1 !important;
+    opacity: 0.55 !important;
+}
+
+/* Risca o título do lembrete */
+li.reminder-item.read strong {
+    color: #64748b !important;
+    text-decoration: line-through !important;
+}
+
+/* Apaga a cor do texto da descrição */
+li.reminder-item.read .reminder-description {
+    color: #64748b !important;
+}
+
+/* Apaga a cor da data */
+li.reminder-item.read .reminder-meta {
+    color: #94a3b8 !important;
+}

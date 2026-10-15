@@ -1,0 +1,610 @@
+/* Container Geral */
+.op-container {
+    padding: 30px;
+    background-color: var(--bg-body);
+    min-height: 100vh;
+}
+
+/* Header mais imponente */
+.op-header { 
+    margin-bottom: 35px; 
+    border-left: 5px solid #4a6cf7;
+    padding-left: 20px;
+}
+
+.op-header h2 {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin: 0;
+    letter-spacing: -0.5px;
+}
+
+.op-header p {
+    color: #64748b;
+    margin: 5px 0 0 0;
+    font-size: 14px;
+}
+
+/* Grid com melhor espaçamento */
+.op-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 40px;
+    align-items: start;
+}
+
+/* Card Profissional */
+.op-card {
+    background: var(--bg-container);
+    margin-bottom: 30px; 
+    border: 2px solid #fc8181;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--border-color);
+    transition: transform 0.2s ease;
+}
+
+.op-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.card-top {
+    padding: 22px 30px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #fc8181;
+    border-bottom: 1px solid var(--border-color);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.card-top i {
+    font-size: 24px;
+    color: #e53e3e;
+}
+
+.dark-mode .card-top i {
+    color: #e53e3e!important;
+}
+
+.card-top h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #c53030;
+    margin: 0;
+}
+
+.card-top span {
+    margin-left: auto;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+/* Corpo do Formulário com Respiro Lateral */
+.op-body { 
+    padding: 30px; 
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card-topo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #1a202c;
+}
+
+.dark-mode.card-topo {
+    color: #1a202c!important;
+}
+
+.userclock i, 
+.userclock .fas.fa-user-clock {
+    color: #991b1b;
+}
+
+.dark-mode .userclock i,
+.dark-mode .userclock .fas.fa-user-clock {
+    color: #ef4444 !important; /* Mude para a cor que preferir no dark mode */
+}
+
+.fas.fa-money-bill-wave {
+    color: #92400e;
+}
+
+.dark-mode .fas.fa-money-bill-wave {
+    color: #b77850 !important;
+}
+
+/* .fas.fa-clock {
+    color: #991b1b;
+} */
+
+/* Cor do ícone do relógio no modo escuro */
+/* .dark-mode .fas.fa-clock {
+    color: #fca5a5 !important;
+} */
+
+/* GRUPO DE CAMPO - A chave para o visual limpo */
+.field-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.field-group label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+
+/* Inputs e Selects Padronizados */
+.op-body input, 
+.op-body select,
+.select-wrapper select { 
+    width: 100% !important;
+    height: 48px !important;
+    padding: 0 15px !important;
+    border: 1.5px solid var(--border-color) !important;
+    border-radius: 10px !important;
+    font-size: 15px !important;
+    background-color: #ffffff !important; 
+    color: #1a202c !important; 
+    transition: all 0.2s;
+    outline: none;
+}
+
+/* Ajuste do placeholder para não ficar invisível (cinza claro) */
+.op-body input::placeholder {
+    color: #a0aec0 !important;
+}
+
+.form-row select {
+    margin: 10px 0 10px 0;
+}
+
+/* Efeito de foco profissional */
+.op-body input:focus, 
+.op-body select:focus {
+    border-color: #4a6cf7 !important;
+    box-shadow: 0 0 0 4px rgba(74, 108, 247, 0.1);
+}
+
+/* Ajuste específico para o Select de Pagamento que estava grudado */
+.field-group select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    /* SVG ultra-limpo: Removidas todas as aspas internas que quebram o compilador */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%231a2b45%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpolyline points=%226 9 12 15 18 9%22%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 16px;
+}
+
+/* ==========================================
+   TABS DE BUSCA (CheckinCheckout)
+   ========================================== */
+.busca-tabs {
+    display: flex;
+    gap: 5px;
+    background: #f1f5f9;
+    padding: 4px;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.busca-tab {
+    flex: 1;
+    padding: 10px 16px;
+    border: none;
+    background: transparent;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+.busca-tab i {
+    font-size: 14px;
+}
+
+.busca-tab.active {
+    background: white;
+    color: #1a2b45;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    font-weight: 700;
+}
+
+.busca-tab:hover:not(.active) {
+    color: #1a2b45;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+/* ==========================================
+   BOTÕES DE CONFIRMAÇÃO
+   ========================================== */
+.btn-confirm-in, .btn-confirm-out {
+    width: 100%;
+    margin-top: 15px;
+    height: 52px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 4px 12px rgba(74, 108, 247, 0.2);
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-confirm-in { 
+    background: #4a6cf7; 
+    color: white; 
+}
+
+.btn-confirm-out { 
+    background: #dc2626; 
+    color: white; 
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.2);
+}
+
+.btn-confirm-in:hover:not(:disabled) { 
+    transform: translateY(-2px); 
+    box-shadow: 0 6px 20px rgba(74, 108, 247, 0.4);
+    background: #3b5bdb;
+}
+
+.btn-confirm-out:hover:not(:disabled) { 
+    transform: translateY(-2px); 
+    box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
+    background: #b91c1c;
+}
+
+.btn-confirm-in:disabled,
+.btn-confirm-out:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ==========================================
+   STATUS BADGES
+   ========================================== */
+.room-badge {
+    background: #0f172a;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    display: inline-block;
+}
+
+.badge-status {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* ==========================================
+   PAGAMENTO INLINE
+   ========================================== */
+.payment-inline {
+    border-radius: 8px;
+}
+
+.alert-warning {
+    padding: 12px 16px;
+    border-radius: 6px;
+    background: #fef3c7;
+    color: #92400e;
+    border: 1px solid #fde68a;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+/* ==========================================
+   ANIMAÇÕES
+   ========================================== */
+.animate-in {
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================
+   LOADING
+   ========================================== */
+.loading-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 40px;
+    color: #64748b;
+    font-size: 15px;
+}
+
+.loading-container i {
+    font-size: 20px;
+}
+
+/* ==========================================
+   UTILITÁRIOS
+   ========================================== */
+.text-right {
+    text-align: right;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mt-10 { margin-top: 10px; }
+.mt-15 { margin-top: 15px; }
+.mt-20 { margin-top: 20px; }
+.mb-10 { margin-bottom: 10px; }
+.mb-20 { margin-bottom: 20px; }
+
+/* ==========================================
+   DICAS / SMALL TEXT
+   ========================================== */
+.op-body small {
+    color: #64748b;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+/* ==========================================
+   RESPONSIVO
+   ========================================== */
+@media (max-width: 768px) {
+    .op-container {
+        padding: 20px;
+    }
+    
+    .op-header h2 {
+        font-size: 24px;
+    }
+    
+    .card-top {
+        padding: 15px 20px;
+    }
+    
+    .op-body {
+        padding: 20px;
+    }
+    
+    .busca-tabs {
+        flex-direction: column;
+        gap: 3px;
+    }
+    
+    .busca-tab {
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+    
+    .op-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .btn-confirm-in, 
+    .btn-confirm-out {
+        height: 46px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .op-container {
+        padding: 15px;
+    }
+    
+    .op-header {
+        border-left-width: 4px;
+        padding-left: 15px;
+        margin-bottom: 25px;
+    }
+    
+    .op-header h2 {
+        font-size: 20px;
+    }
+    
+    .card-top {
+        padding: 12px 15px;
+    }
+    
+    .card-top h2 {
+        font-size: 16px;
+    }
+    
+    .op-body {
+        padding: 15px;
+        gap: 15px;
+    }
+    
+    .op-body input, 
+    .op-body select {
+        height: 42px !important;
+        font-size: 14px !important;
+    }
+    
+    .btn-confirm-in, 
+    .btn-confirm-out {
+        height: 42px;
+        font-size: 13px;
+        border-radius: 10px;
+    }
+}
+
+/* ==========================================
+   DARK MODE (Opcional - se usar variáveis)
+   ========================================== */
+@media (prefers-color-scheme: dark) {
+    .op-container {
+        background-color: #0f172a;
+    }
+    
+    .op-header h2 {
+        color: #f1f5f9;
+    }
+    
+    .op-header p {
+        color: #94a3b8;
+    }
+    
+    .op-card {
+        background: #1e293b;
+        border-color: #334155;
+    }
+    
+    .card-top {
+        background: rgba(255, 255, 255, 0.02);
+        border-bottom-color: #334155;
+    }
+    
+    .card-top h2 {
+        color: #f1f5f9;
+    }
+    
+    .op-body input,
+    .op-body select {
+        background-color: #0f172a !important;
+        color: #f1f5f9 !important;
+        border-color: #334155 !important;
+    }
+    
+    .op-body input::placeholder {
+        color: #64748b !important;
+    }
+    
+    .op-body input:focus,
+    .op-body select:focus {
+        border-color: #4a6cf7 !important;
+        box-shadow: 0 0 0 4px rgba(74, 108, 247, 0.2);
+    }
+    
+    .field-group label {
+        color: #94a3b8;
+    }
+    
+    .busca-tabs {
+        background: #0f172a;
+    }
+    
+    .busca-tab {
+        color: #94a3b8;
+    }
+    
+    .busca-tab.active {
+        background: #1e293b;
+        color: #f1f5f9;
+    }
+    
+    .busca-tab:hover:not(.active) {
+        color: #f1f5f9;
+        background: rgba(30, 41, 59, 0.5);
+    }
+    
+    .room-badge {
+        background: #f1f5f9;
+        color: #0f172a;
+    }
+    
+    .op-body small {
+        color: #94a3b8;
+    }
+    
+    .loading-container {
+        color: #94a3b8;
+    }
+}
+
+/* --- CONFIGURAÇÃO GLOBAL DE CORES --- */
+:root {
+    /* TEMA CLARO */
+    --cor-fundo-pagina: #ffffff;
+    --cor-fundo-card: #f8fafc;
+    --cor-texto-principal: #1e293b;
+    --cor-texto-secundario: #64748b;
+    --cor-borda: #e2e8f0;
+    --cor-accent: #3b82f6;
+}
+
+.dark-mode {
+    /* TEMA ESCURO */
+    --cor-fundo-pagina: #0f172a;
+    --cor-fundo-card: #1e293b;
+    --cor-texto-principal: #f8fafc;
+    --cor-texto-secundario: #94a3b8;
+    --cor-borda: #334155;
+    --cor-accent: #60a5fa;
+}
+
+/* --- APLICAÇÃO --- */
+/* Garante que o fundo da página inteira respeite o tema */
+.app-content {
+    background-color: var(--cor-fundo-pagina) !important;
+}
+.op-container {
+    background-color: var(--cor-fundo-pagina) !important;
+    color: var(--cor-texto-principal) !important;
+}
+
+/* Garante que o card seja o contraponto correto do fundo */
+.op-card {
+    background-color: var(--cor-fundo-card) !important;
+    border: 1px solid var(--cor-borda) !important;
+}
+
+/* Força todos os textos dentro do container a seguirem a variável */
+.op-container h2, 
+.op-container p, 
+.op-container label, 
+.op-container input {
+    color: var(--cor-texto-principal) !important;
+}
+
+/* Ajuste específico do input */
+.op-container input {
+    background-color: var(--cor-fundo-pagina) !important;
+    border: 1px solid var(--cor-borda) !important;
+}

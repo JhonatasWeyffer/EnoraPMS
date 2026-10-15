@@ -38,7 +38,7 @@ O sistema integra módulos essenciais como recepção, governança (housekeeping
 
 Além disso, o EnoraPMS possui integração com a **FNRH (Ficha Nacional de Registro de Hóspedes)** via API do Serpro, cumprindo as obrigações legais de registro de hóspedes exigidas pela legislação brasileira.
 
-> **💡 Imagem de destaque — Adicione aqui um banner ou screenshot da tela principal do sistema:**
+> **💡 Imagem de destaque — Imagem ilustrativa do sistema:**
 >
 > ![Tela Principal do EnoraPMS](docs/images/banner.png)
 

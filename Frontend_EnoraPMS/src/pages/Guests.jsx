@@ -164,10 +164,10 @@ const mapearDoAPI = (hospede) => ({
 const DOMAINS = {
   genders: [
     { code: "", name: "Selecione..." },
-    { code: "HOMEM", name: "Homem" },
-    { code: "MULHER", name: "Mulher" },
+    { code: "HOMEM", name: "Masculino" },
+    { code: "MULHER", name: "Feminino" },
     { code: "OUTRO", name: "Outro" },
-    { code: "NAOINFORMADO", name: "Não Informado" }
+    { code: "NAOINFORMADO", name: "Prefiro não informar" } 
   ],
   races: [
     { code: "", name: "Selecione..." },
@@ -176,21 +176,21 @@ const DOMAINS = {
     { code: "INDIGENA", name: "Indígena" },
     { code: "PARDA", name: "Parda" },
     { code: "PRETA", name: "Preta" },
-    { code: "NAOINFORMADO", name: "Não Informado" }
+    { code: "NAOINFORMAR", name: "Prefiro não informar" } 
   ],
   disabilities: [
     { code: "", name: "Selecione..." },
     { code: "NAO", name: "Não" },
     { code: "SIM", name: "Sim" },
-    { code: "NAOINFORMADO", name: "Não Informado" }
+    { code: "NAOINFORMAR", name: "Prefiro não informar" } 
   ],
   disabilityTypes: [
     { code: "", name: "Selecione..." },
-    { code: "FISICA", name: "Física" },
-    { code: "AUDITIVA_SURDEZ", name: "Auditiva/Surdez" },
-    { code: "VISUAL", name: "Visual" },
-    { code: "INTELECTUAL", name: "Intelectual" },
-    { code: "MULTIPLA", name: "Múltipla" }
+    { code: "FISICA", name: "Deficiência Física" },
+    { code: "AUDITIVA_SURDEZ", name: "Deficiência Auditiva/Surdez" },
+    { code: "VISUAL", name: "Deficiência Visual" },
+    { code: "INTELECTUAL", name: "Deficiência Intelectual" },
+    { code: "MULTIPLA", name: "Deficiência Múltipla" }
   ],
   documentTypes: [
     { code: "CPF", name: "CPF" },
@@ -301,6 +301,80 @@ export default function Guests() {
       setErrors(prev => ({ ...prev, doc_number: undefined }));
     }
   }, [errors]);
+
+  // ----------------------------------------------------------------
+  // BUSCA AUTOMÁTICA NA API FNRH (via backend → Serpro)
+  // ----------------------------------------------------------------
+  const [searchingCPF, setSearchingCPF] = useState(false);
+
+  /**
+   * Disparado no onBlur do campo CPF (quando o tipo de documento for CPF).
+   * Consulta o backend → Serpro e preenche os campos automaticamente.
+   */
+  const handleCPFBlur = useCallback(async () => {
+    // Só busca em modo de criação (não sobrescreve edição existente)
+    if (editingId) return;
+
+    const cpfLimpo = masks.removeMask(formData.doc_number);
+    if (cpfLimpo.length !== 11) return; // CPF incompleto, nada a fazer
+
+    setSearchingCPF(true);
+    const toastId = toast.loading('Consultando CPF na base FNRH...', { duration: 10000 });
+
+try {
+      const response = await api.get(`/fnrh/pessoa/${cpfLimpo}`);
+      
+      // O Serpro encapsula tudo dentro de um objeto "dados"
+      const payloadFNRH = response.data?.dados || response.data;
+      const dadoPessoal = payloadFNRH?.dado_pessoal || {};
+      const contato = payloadFNRH?.contato || {};
+      const endereco = contato?.endereco || {};
+
+      // Auto-fill mapeado exatamente com a estrutura aninhada da v2
+      setFormData(prev => ({
+        ...prev,
+        name: dadoPessoal.nome || prev.name,
+        
+        birth_date: dadoPessoal.data_nascimento
+          ? dadoPessoal.data_nascimento.split('T')[0]
+          : prev.birth_date,
+
+        zip: endereco.cep ? masks.cep(endereco.cep) : prev.zip,
+        address: endereco.logradouro || prev.address,
+        number: endereco.numero || prev.number,
+        complement: endereco.complemento || prev.complement,
+        neighborhood: endereco.bairro || prev.neighborhood,
+        
+        // Cidades e Estados na FNRH v2 ficam dentro de um sub-objeto "cidade"
+        city_ibge: endereco.cidade?.id ? String(endereco.cidade.id) : prev.city_ibge,
+        city_name: endereco.cidade?.nome || prev.city_name,
+        state: endereco.cidade?.estado?.uf || prev.state,
+        
+        // E-mail e telefone só vêm se o hóspede já tiver histórico
+        email: contato.Email || prev.email,
+        phone: contato.Telefone ? masks.phone(contato.Telefone) : prev.phone,
+      }));
+
+      toast.success('Dados preenchidos automaticamente da FNRH!', { id: toastId });
+    } catch (error) {
+      toast.dismiss(toastId);
+
+      if (error.response?.status === 404) {
+        // CPF não encontrado no Serpro — silencioso (usuário pode preencher manualmente)
+        toast('CPF não encontrado na base FNRH. Preencha os dados manualmente.', {
+          icon: 'ℹ️',
+          duration: 4000,
+        });
+      } else if (error.response?.status === 404 && error.response?.data?.message?.includes('configurada')) {
+        toast.error('Integração FNRH não configurada. Acesse Configurações > Integração FNRH.');
+      } else if (error.response?.data?.message) {
+        toast.error(error.response.data.message, { duration: 5000 });
+      }
+      // Outros erros: silencioso para não bloquear o cadastro manual
+    } finally {
+      setSearchingCPF(false);
+    }
+  }, [formData.doc_number, editingId, masks]);
 
   const handlePhoneChange = useCallback((e) => {
     const rawValue = e.target.value;
@@ -417,7 +491,7 @@ export default function Guests() {
       }
       if (!payloadData.birth_date) payloadData.birth_date = "1900-01-01";
       if (!payloadData.gender) payloadData.gender = "NAOINFORMADO";
-      if (!payloadData.race) payloadData.race = "NAOINFORMADO";
+      if (!payloadData.race) payloadData.race = "NAOINFORMAR"; // Ajustado
       if (!payloadData.disability) payloadData.disability = "NAO";
 
       const dataToSave = mapearParaAPI(payloadData);
@@ -772,21 +846,35 @@ export default function Guests() {
                 </div>
 
                 <div className={`input-group-mock ${errors.doc_number ? 'has-error' : ''}`}>
-                  <label>{isCPF ? "CPF" : "Número do Passaporte"}</label>
+                  <label>
+                    {isCPF ? "CPF" : "Número do Passaporte"}
+                    {isCPF && !editingId && (
+                      <span style={{ fontSize: '10px', opacity: 0.6, marginLeft: '6px', fontWeight: 400 }}>
+                        (ao sair do campo, busca automática no Serpro)
+                      </span>
+                    )}
+                    {searchingCPF && (
+                      <span style={{ marginLeft: '8px', color: '#4a6cf7', fontSize: '11px' }}>
+                        <i className="fas fa-spinner fa-spin"></i> Consultando FNRH...
+                      </span>
+                    )}
+                  </label>
                   {isCPF ? (
                     <input 
                       name="doc_number" 
                       value={formData.doc_number} 
                       onChange={handleCPFChange}
-                      placeholder="000.000.000-00 (Opcional)"
+                      onBlur={handleCPFBlur}
+                      placeholder="000.000.000-00"
                       maxLength={14}
+                      disabled={searchingCPF}
                     />
                   ) : (
                     <input 
                       name="doc_number" 
                       value={formData.doc_number} 
                       onChange={handleChange}
-                      placeholder="Número do passaporte (Opcional)"
+                      placeholder="Número do passaporte"
                     />
                   )}
                   {errors.doc_number && <span className="field-error">{errors.doc_number}</span>}

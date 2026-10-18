@@ -123,7 +123,7 @@ export class GuestsService {
     }
   }
 
-  // -------- Camada de Mapeamento (DTO) -> Novo (Schema Prisma) --------
+  // -------- Camada de Mapeamento (DTO) --------
 
   private mapToCreateData(pessoa: any, docNumber: string, operadorId: number): Prisma.HospedeUncheckedCreateInput {
     return {

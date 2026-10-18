@@ -15,6 +15,7 @@ import { FinancialModule } from './financial/financial.module'; // ← Módulo f
 import { RoomsModule } from './rooms/rooms.module'; // ← Módulo de quartos
 import { DashboardModule } from './dashboard/dashboard.module'; // ← Módulo de dashboard
 import { ReportsModule } from './reports/reports.module'; // ← Módulo de relatórios
+import { FnrhModule } from './fnrh/fnrh.module'; // ← Módulo de integração FNRH / Serpro
 
 @Module({
   imports: [
@@ -36,7 +37,8 @@ import { ReportsModule } from './reports/reports.module'; // ← Módulo de rela
     FinancialModule,
     RoomsModule,
     DashboardModule,
-    ReportsModule
+    ReportsModule,
+    FnrhModule,
   ],
   controllers: [AppController],
   providers: [AppService],

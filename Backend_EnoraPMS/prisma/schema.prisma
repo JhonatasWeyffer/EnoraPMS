@@ -407,6 +407,24 @@ model Financeiro {
 }
 
 // ============================================================
+// MÓDULO DE CONFIGURAÇÕES DO HOTEL (INTEGRAÇÕES)
+// ============================================================
+
+model ConfiguracaoHotel {
+  id           Int      @id @default(autoincrement())
+
+  // Credenciais da API Serpro (FNRH v2)
+  // Armazenadas em Base64 no formato "usuario:chave" para o header Authorization: Basic
+  serpro_usuario String?
+  serpro_chave   String?
+
+  atualizadoEm DateTime @updatedAt
+  criadoEm     DateTime @default(now())
+
+  @@map("ConfiguracaoHotel")
+}
+
+// ============================================================
 // MÓDULO DE LEMBRETES DO TURNO
 // ============================================================
 

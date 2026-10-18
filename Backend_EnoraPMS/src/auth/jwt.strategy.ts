@@ -34,9 +34,11 @@ export class JwtStrategy extends PassportStrategy(Strategy, 'jwt') {
     }
 
     // Retorna os dados que ficarão disponíveis no req.user
+    // O CPF é obrigatório para o header 'cpf_solicitante' nas requisições FNRH v2
     return { 
       sub: payload.sub, 
-      role: payload.role 
+      role: payload.role,
+      cpf: user.cpf,
     };
   }
 }
